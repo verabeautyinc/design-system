@@ -22,8 +22,8 @@
 
 **Visual direction:**
 - Full-width hero, white background
-- Headline: Inter Light 300, 48px desktop / 34px mobile, Neutral-900
-- Subheadline: Inter Regular 400, 20px desktop / 17px mobile, Neutral-600
+- Headline: Geist Light 300, 48px desktop / 34px mobile, Neutral-900
+- Subheadline: Geist Regular 400, 20px desktop / 17px mobile, Neutral-600
 - Left-aligned text (6 columns), right side has a soft lifestyle photo (woman 40s, natural light, calm expression, looking at Vera on her phone)
 - Generous padding: 96px top/bottom
 - No pattern overlays — pure clean
@@ -68,7 +68,7 @@ Positioned immediately below the hero to establish credibility.
 
 **Visual direction:**
 - Neutral-100 background, thin top/bottom borders (Neutral-200)
-- Stats in Inter Medium 500, Neutral-700
+- Stats in Geist Medium 500, Neutral-700
 - Separated by middle dots
 - Centered, single row on desktop, stacked on mobile
 - Padding: 24px top/bottom

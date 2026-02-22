@@ -199,7 +199,7 @@
 | About Vera | 0.5 | Brief company overview and platform description. |
 | Methodology Appendix | 0.5 | Survey details, sample demographics, confidence intervals. |
 
-**Visual direction:** Data-heavy but clean. Every finding gets a hero chart or stat. Use Vera's warm neutral palette for charts (no default Excel colors). Coral accent for key data points. Inter font throughout.
+**Visual direction:** Data-heavy but clean. Every finding gets a hero chart or stat. Use Vera's warm neutral palette for charts (no default Excel colors). Coral accent for key data points. Geist font throughout.
 
 **CTA:** "Download the full report" (gated) → Drives email list growth and positions Vera as a thought leader.
 

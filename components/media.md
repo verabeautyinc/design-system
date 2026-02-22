@@ -155,7 +155,7 @@ Embedded video with playback controls for treatment demos, provider introduction
 | Controls bar | Bottom playback controls |
 | Play/Pause | Toggle playback |
 | Timeline | Scrubber with current position |
-| Time display | Current time / duration (JetBrains Mono) |
+| Time display | Current time / duration (Geist Mono) |
 | Volume | Mute toggle + slider |
 | Fullscreen | Expand to fullscreen |
 
@@ -183,7 +183,7 @@ Embedded video with playback controls for treatment demos, provider introduction
 | Timeline track | 4px, Neutral-0/30% |
 | Timeline fill | Primary-500 |
 | Timeline thumb | 12px circle, white |
-| Time font | JetBrains Mono / Regular 400, Caption 1 |
+| Time font | Geist Mono / Regular 400, Caption 1 |
 | Icon size (controls) | 20px |
 | Auto-hide controls | 3s after last interaction |
 | Volume slider width | 80px |

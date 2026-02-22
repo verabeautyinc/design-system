@@ -39,7 +39,7 @@ Concrete examples of design decisions that align with Vera's principles — and 
 
 ## 2. Typography: One Font, Clear Hierarchy
 
-**Do:** Use Inter at different weights and sizes to create hierarchy. SemiBold for headings, Regular for body, Medium for labels.
+**Do:** Use Geist at different weights and sizes to create hierarchy. SemiBold for headings, Regular for body, Medium for labels.
 
 ```
 Botox Treatment Overview          ← Title 2 / SemiBold 600

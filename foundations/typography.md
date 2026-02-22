@@ -6,11 +6,11 @@ Typography is the primary vehicle for Vera's voice — calm authority expressed 
 
 ## Font Families
 
-### Primary — Inter
+### Primary — Geist
 
-**Inter** is our primary typeface across all platforms. Its open, neutral letterforms project clinical clarity while maintaining warmth through subtle humanist details. Designed specifically for screens, it excels at every size from captions to display.
+**Geist** is our primary typeface across all platforms. A modern geometric sans-serif by Vercel, it provides excellent readability at every size with a clean, contemporary feel that bridges clinical clarity and warmth.
 
-- **Source:** [Google Fonts](https://fonts.google.com/specimen/Inter) / [rsms.me/inter](https://rsms.me/inter)
+- **Source:** [Google Fonts](https://fonts.google.com/specimen/Geist) / [vercel.com/font](https://vercel.com/font)
 - **License:** SIL Open Font License
 - **Variable font:** Yes (recommended for web/mobile)
 - **Weights:** 9 (Thin through Black)
@@ -36,40 +36,61 @@ For premium marketing moments — hero headlines, editorial content, and brand s
 - **Weights used:** Light (300), Regular (400), SemiBold (600)
 - **Usage:** Display text only (32px+). Never for UI elements or body text.
 
+### Wordmark — Vera Custom
+
+A proprietary typeface used **exclusively** for the "vera" wordmark and logo. Not available for general use.
+
+- **Source:** Custom (internal asset)
+- **License:** Proprietary — Vera Beauty Inc.
+- **File:** `VeraDisplay.ttf`
+- **Usage:** Logo and wordmark only. Never for headlines, body text, or UI elements.
+
 ### Korean — Pretendard
 
-For Korean-language content, **Pretendard** mirrors Inter's proportions and tone while providing native Korean glyph support.
+For Korean-language content, **Pretendard** mirrors Geist's proportions and tone while providing native Korean glyph support.
 
 - **Source:** [cactus.tistory.com/306](https://cactus.tistory.com/306)
 - **License:** SIL Open Font License
-- **Weights:** Matches Inter 1:1 (100–900)
+- **Weights:** Matches Geist 1:1 (100–900)
 
-### Monospace — JetBrains Mono
+### Monospace — Geist Mono
 
-For treatment codes, appointment IDs, data tables, and any content requiring fixed-width alignment.
+For treatment codes, appointment IDs, data tables, and any content requiring fixed-width alignment. Geist Mono pairs naturally with Geist as they share the same design DNA.
 
-- **Source:** [Google Fonts](https://fonts.google.com/specimen/JetBrains+Mono)
+- **Source:** [Google Fonts](https://fonts.google.com/specimen/Geist+Mono) / [vercel.com/font](https://vercel.com/font)
 - **License:** SIL Open Font License
+- **Variable font:** Yes
 - **Weights used:** Regular (400), Medium (500), Bold (700)
 
 ### Font Stack (CSS)
 
 ```css
 /* Primary */
---font-sans: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-sans: 'Geist', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-/* Display */
+/* Display Accent */
 --font-display: 'Cormorant Garamond', 'Georgia', serif;
 
+/* Wordmark (logo only) */
+--font-vera: 'Vera Custom', sans-serif;
+
 /* Monospace */
---font-mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+--font-mono: 'Geist Mono', 'SF Mono', 'Consolas', monospace;
 ```
 
 ### React Native
 
 ```typescript
-// Use expo-google-fonts or custom font loading
-import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
+// Geist is not yet available in expo-google-fonts
+// Use custom font loading via expo-font
+import * as Font from 'expo-font';
+
+await Font.loadAsync({
+  'Geist-Regular': require('../assets/fonts/Geist-Regular.ttf'),
+  'Geist-Medium': require('../assets/fonts/Geist-Medium.ttf'),
+  'Geist-SemiBold': require('../assets/fonts/Geist-SemiBold.ttf'),
+  'Geist-Bold': require('../assets/fonts/Geist-Bold.ttf'),
+});
 ```
 
 ---
@@ -135,23 +156,25 @@ Vera's type scale follows Apple HIG naming conventions with sizes optimized for 
 
 ### Principle: One Voice, Two Registers
 
-Inter handles 95% of all typography. Cormorant Garamond appears only for **premium brand moments** — think of it as Vera "dressing up."
+Geist handles 95% of all typography. Cormorant Garamond appears only for **premium brand moments** — think of it as Vera "dressing up." The Vera Custom font is reserved exclusively for the logo wordmark.
 
 | Context | Font | Example |
 |---------|------|---------|
-| **All UI** | Inter | Buttons, labels, navigation, forms, cards |
-| **Body content** | Inter | Treatment descriptions, reviews, articles |
-| **Headlines (product)** | Inter SemiBold/Bold | Section headers, page titles |
+| **All UI** | Geist | Buttons, labels, navigation, forms, cards |
+| **Body content** | Geist | Treatment descriptions, reviews, articles |
+| **Headlines (product)** | Geist SemiBold/Bold | Section headers, page titles |
 | **Headlines (marketing)** | Cormorant Garamond | Hero banners, landing pages, email headers |
-| **Data** | JetBrains Mono | Appointment IDs, prices, treatment codes |
-| **Korean content** | Pretendard | All Korean text mirrors Inter hierarchy |
+| **Logo / Wordmark** | Vera Custom | "vera" wordmark only |
+| **Data** | Geist Mono | Appointment IDs, prices, treatment codes |
+| **Korean content** | Pretendard | All Korean text mirrors Geist hierarchy |
 
 ### Pairing Rules
 
-1. **Never mix Inter and Cormorant in the same text block** — they live in separate hierarchical zones
+1. **Never mix Geist and Cormorant in the same text block** — they live in separate hierarchical zones
 2. **Cormorant is for display only** — minimum 32px, maximum 2 instances per screen
-3. **Data in monospace** — any string the user might need to copy, compare, or reference
-4. **One font weight per element** — never apply two weights to the same component
+3. **Vera Custom is for the logo only** — never use it for any other text
+4. **Data in monospace** — any string the user might need to copy, compare, or reference
+5. **One font weight per element** — never apply two weights to the same component
 
 ---
 

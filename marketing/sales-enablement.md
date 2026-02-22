@@ -84,7 +84,7 @@
 | 9 | What Providers Say | 2-3 testimonials from current providers. Focus on patient quality, not volume. | Quote cards with provider name/specialty |
 | 10 | Next Steps | "Get verified in 48 hours." Contact: providers@verabeauty.app. QR code to provider signup. | CTA + QR code + Vera combination mark |
 
-**Design:** Follow presentation template from brand guidelines — white background, coral accents, Inter font, one idea per slide.
+**Design:** Follow presentation template from brand guidelines — white background, coral accents, Geist font, one idea per slide.
 
 ---
 

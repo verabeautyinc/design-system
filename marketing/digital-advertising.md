@@ -56,7 +56,7 @@
 
 **Visual direction:**
 - Background: White (`#FFFFFF`)
-- Headline: Inter SemiBold 600, 18px, Neutral-900 (`#1C1917`)
+- Headline: Geist SemiBold 600, 18px, Neutral-900 (`#1C1917`)
 - CTA button: Primary Coral (`#D85959`), white text, 8px radius
 - Wordmark: Bottom-left, small, Neutral-400
 - No imagery — text-only for clarity at small size
@@ -75,8 +75,8 @@
 **Visual direction:**
 - Background: Neutral-50 (`#FAFAF9`)
 - Wordmark: Left, Coral symbol + Neutral-900 text
-- Headline: "Skincare is healthcare." Inter SemiBold, Neutral-900
-- Subline: "Personalized plans backed by science." Inter Regular, Neutral-600
+- Headline: "Skincare is healthcare." Geist SemiBold, Neutral-900
+- Subline: "Personalized plans backed by science." Geist Regular, Neutral-600
 - CTA: Coral button, right-aligned
 - Clean horizontal layout, generous spacing between elements
 
@@ -120,7 +120,7 @@
 - Background: White
 - Wordmark at top, divider below
 - Tagline in Cormorant Garamond Light, 20px — the one place we use the display serif in ads
-- Three proof points stacked, Inter Regular, Neutral-600, generous vertical spacing
+- Three proof points stacked, Geist Regular, Neutral-600, generous vertical spacing
 - CTA at bottom, Coral button
 - Left-aligned text throughout, strong vertical rhythm
 
@@ -188,7 +188,7 @@
 └────────────────────────────────────┘
 ```
 
-**Visual direction:** Text-only card. White card on Neutral-50 background. Inter Light 300, 24px, centered. Wordmark bottom-right. No imagery — lets the question do the work.
+**Visual direction:** Text-only card. White card on Neutral-50 background. Geist Light 300, 24px, centered. Wordmark bottom-right. No imagery — lets the question do the work.
 
 **Copy (primary text):**
 > We believe skincare is healthcare.
@@ -201,7 +201,7 @@
 **Headline:** Skincare is healthcare.
 **Description:** The trusted platform for aesthetic treatments.
 
-**A/B test:** Serif (Cormorant Garamond) vs sans-serif (Inter) for the question text. Serif may perform better for aspirational/luxury feel with older demographics.
+**A/B test:** Serif (Cormorant Garamond) vs sans-serif (Geist) for the question text. Serif may perform better for aspirational/luxury feel with older demographics.
 
 #### Feed Ad 3 — "The Stat"
 
@@ -222,7 +222,7 @@
 └────────────────────────────────────┘
 ```
 
-**Visual direction:** Large stat number in Inter Light, 72px, Primary-500. Supporting text in Inter Regular, Neutral-700. White background.
+**Visual direction:** Large stat number in Geist Light, 72px, Primary-500. Supporting text in Geist Regular, Neutral-700. White background.
 
 **Copy (primary text):**
 > The aesthetic treatment industry has a trust problem.
@@ -284,7 +284,7 @@ Frame 3:
 └────────────────────┘
 ```
 
-**Visual direction:** White background, Inter SemiBold centered, large text. Each word fades in and holds. Frame 3 adds wordmark + CTA. Minimal. Confident. The whitespace is the statement.
+**Visual direction:** White background, Geist SemiBold centered, large text. Each word fades in and holds. Frame 3 adds wordmark + CTA. Minimal. Confident. The whitespace is the statement.
 
 **A/B test:** "Science. Not hype." vs "Evidence. Not influencers." — test which contrast resonates more.
 
@@ -362,7 +362,7 @@ CLOSE (12-15s):
 [Vera wordmark]
 ```
 
-**Visual direction:** Trending "list" format. Fast-paced but calm energy. Text overlays in Inter SemiBold on white cards. No chaotic transitions — smooth cuts.
+**Visual direction:** Trending "list" format. Fast-paced but calm energy. Text overlays in Geist SemiBold on white cards. No chaotic transitions — smooth cuts.
 
 **A/B test:** "3 things I stopped doing" vs "3 things I wish I knew sooner" — test negative-framing vs positive-framing.
 

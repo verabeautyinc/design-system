@@ -27,11 +27,6 @@ Built on Apple Human Interface Guidelines principles with a focus on **minimalis
 - [Data Display](./components/data-display.md) — Cards, Tables, Lists, Stats, Charts, Badges
 - [Media](./components/media.md) — Image Containers, Video Players, Avatars, Galleries
 
-### Patterns
-- [Page Templates](./patterns/templates.md) — Landing, Dashboard, Settings, Profile, Checkout
-- [User Flows](./patterns/flows.md) — Onboarding, Auth, Search, Filtering, Empty States
-- [Feedback Patterns](./patterns/feedback-patterns.md) — Success, Error, Loading, Empty
-
 ### Tokens
 - [Design Tokens (JSON)](./tokens/design-tokens.json) — Complete token structure for developer handoff
 

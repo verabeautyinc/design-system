@@ -64,7 +64,7 @@
 >
 > The shift is happening. The question is whether the industry will catch up.
 
-**Visual:** Simple two-column comparison graphic (white background, Inter font, coral accent on "skin management" column).
+**Visual:** Simple two-column comparison graphic (white background, Geist font, coral accent on "skin management" column).
 
 ---
 
@@ -87,7 +87,7 @@
 >
 > 500 providers. 100% verified. Zero paid placements.
 
-**Visual:** Clean stat graphic — "500+" in large Inter Light, "verified providers" below, Vera wordmark.
+**Visual:** Clean stat graphic — "500+" in large Geist Light, "verified providers" below, Vera wordmark.
 
 ---
 

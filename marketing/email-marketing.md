@@ -3,7 +3,7 @@
 **Sender name:** Vera
 **From address:** hello@verabeauty.app
 **Tone:** Personal, warm, informative. Like receiving a note from a knowledgeable friend.
-**Design:** Minimal. White background. Inter font. Vera wordmark header. Single-column, max 600px wide.
+**Design:** Minimal. White background. Geist font. Vera wordmark header. Single-column, max 600px wide.
 
 ---
 
@@ -99,7 +99,7 @@
 
 **Visual direction:**
 - Header: Vera wordmark, centered, with thin divider below
-- Body: Single column, left-aligned, Inter Regular 16px, Neutral-700
+- Body: Single column, left-aligned, Geist Regular 16px, Neutral-700
 - Checkmarks: Vera Coral (`#D85959`)
 - CTA: Full-width button, Coral background, white text, 8px radius
 - Footer: Neutral-400, small text, centered
@@ -346,8 +346,8 @@
 |---------|--------------|
 | Max width | 600px |
 | Background | White (`#FFFFFF`) |
-| Body font | Inter Regular 400, 16px, `#44403C` (Neutral-700) |
-| Heading font | Inter SemiBold 600, 20px, `#1C1917` (Neutral-900) |
+| Body font | Geist Regular 400, 16px, `#44403C` (Neutral-700) |
+| Heading font | Geist SemiBold 600, 20px, `#1C1917` (Neutral-900) |
 | Link color | `#D85959` (Primary-500) |
 | CTA button | `#D85959` bg, white text, 8px radius, 48px height, full width |
 | Dividers | 1px `#E7E5E4` (Neutral-200) |

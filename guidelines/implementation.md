@@ -10,18 +10,17 @@ A developer reference for implementing the Vera Design System across our three p
 
 #### Install Fonts
 
-```bash
-npm install @fontsource-variable/inter @fontsource/cormorant-garamond @fontsource/jetbrains-mono
-```
+Geist and Geist Mono are loaded via `next/font/google`. Cormorant Garamond is also loaded via `next/font/google`. The Vera Custom wordmark font is loaded via `next/font/local` from `app/fonts/VeraDisplay.ttf`.
 
 ```typescript
 // app/layout.tsx
-import '@fontsource-variable/inter';
-import '@fontsource/cormorant-garamond/300.css';
-import '@fontsource/cormorant-garamond/400.css';
-import '@fontsource/cormorant-garamond/600.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/500.css';
+import { Geist, Geist_Mono, Cormorant_Garamond } from 'next/font/google';
+import localFont from 'next/font/local';
+
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
+const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'], display: 'swap' });
+const cormorantGaramond = Cormorant_Garamond({ variable: '--font-cormorant-garamond', subsets: ['latin'], weight: ['300', '400', '600'], display: 'swap' });
+const veraCustom = localFont({ src: './fonts/VeraDisplay.ttf', variable: '--font-vera-custom', display: 'swap' });
 ```
 
 #### Tailwind CSS v4 Configuration
@@ -86,9 +85,9 @@ With Tailwind v4, design tokens are configured via CSS custom properties. Import
   --color-info-900: #1E3A8A;
 
   /* Typography */
-  --font-sans: 'Inter Variable', 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Geist', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  --font-mono: 'Geist Mono', 'SF Mono', 'Consolas', monospace;
 
   /* Border Radius */
   --radius-sm: 4px;
