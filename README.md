@@ -19,14 +19,6 @@ Built on Apple Human Interface Guidelines principles with a focus on **minimalis
 - [Layout & Grid](./foundations/layout.md) — 12-column responsive grid, breakpoints, safe areas
 - [Spacing](./foundations/spacing.md) — 8px base unit scale and usage guidelines
 
-### Components
-- [Overview](./components/overview.md) — Component inventory and design principles
-- [Navigation](./components/navigation.md) — Header, Tab Bar, Sidebar, Breadcrumbs
-- [Inputs](./components/inputs.md) — Buttons, Text Fields, Dropdowns, Toggles, Checkboxes, Radio, Sliders
-- [Feedback](./components/feedback.md) — Alerts, Toasts, Modals, Progress, Skeletons
-- [Data Display](./components/data-display.md) — Cards, Tables, Lists, Stats, Charts, Badges
-- [Media](./components/media.md) — Image Containers, Video Players, Avatars, Galleries
-
 ### Tokens
 - [Design Tokens (JSON)](./tokens/design-tokens.json) — Complete token structure for developer handoff
 
