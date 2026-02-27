@@ -22,6 +22,7 @@ Built on Apple Human Interface Guidelines principles with a focus on **minimalis
 ### Tokens
 - [Design Tokens (JSON)](./tokens/design-tokens.json) — Complete token structure for developer handoff
 - Build pipeline — Generates platform-specific outputs from source tokens (see [Token Build Pipeline](#token-build-pipeline) below)
+- [Design Tokens (preview)](https://verabeautyinc.github.io/design-system/preview.html)
 
 ### Guidelines
 - [Design Principles](./guidelines/principles.md) — Three core principles with examples
