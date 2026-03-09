@@ -10,25 +10,25 @@
 
 ### Search Headlines (30 characters max)
 
-| # | Headline | Characters | Hook Strategy |
-|---|----------|-----------|---------------|
-| H1 | `Age Beautifully With a Plan` | 28 | Core positioning — reframes aging |
-| H2 | `Aesthetic Care, Demystified` | 27 | Pain point — information overload |
-| H3 | `Skincare Is Healthcare` | 22 | Category reframe — clinical authority |
-| H4 | `Treatments Backed by Science` | 29 | Trust signal — evidence-based |
-| H5 | `Your Skin Treatment Plan` | 25 | Personalization — ownership |
+| #   | Headline                       | Characters | Hook Strategy                         |
+| --- | ------------------------------ | ---------- | ------------------------------------- |
+| H1  | `Age Beautifully With a Plan`  | 28         | Core positioning — reframes aging     |
+| H2  | `Aesthetic Care, Demystified`  | 27         | Pain point — information overload     |
+| H3  | `Skincare Is Healthcare`       | 22         | Category reframe — clinical authority |
+| H4  | `Treatments Backed by Science` | 29         | Trust signal — evidence-based         |
+| H5  | `Your Skin Treatment Plan`     | 25         | Personalization — ownership           |
 
 **A/B test:** H1 vs H3 as primary headline. H1 leads with aspiration (emotional), H3 leads with category reframe (rational). Test which drives higher CTR for our audience.
 
 ### Search Descriptions (90 characters max)
 
-| # | Description | Characters | Strategy |
-|---|-------------|-----------|----------|
-| D1 | `Personalized treatment plans, verified providers, and real results. Start your plan.` | 85 | Full value prop |
-| D2 | `Compare treatments backed by clinical evidence. See what works for your skin tone.` | 83 | Inclusivity + science |
-| D3 | `Stop guessing. Build a personalized treatment plan with verified providers near you.` | 85 | Pain → solution |
-| D4 | `Real reviews. Real pricing. Real results. The trusted platform for aesthetic care.` | 82 | Trust repetition |
-| D5 | `Explore treatments tailored to your skin. Backed by science, not influencer hype.` | 82 | Competitive differentiation |
+| #   | Description                                                                            | Characters | Strategy                    |
+| --- | -------------------------------------------------------------------------------------- | ---------- | --------------------------- |
+| D1  | `Personalized treatment plans, verified providers, and real results. Start your plan.` | 85         | Full value prop             |
+| D2  | `Compare treatments backed by clinical evidence. See what works for your skin tone.`   | 83         | Inclusivity + science       |
+| D3  | `Stop guessing. Build a personalized treatment plan with verified providers near you.` | 85         | Pain → solution             |
+| D4  | `Real reviews. Real pricing. Real results. The trusted platform for aesthetic care.`   | 82         | Trust repetition            |
+| D5  | `Explore treatments tailored to your skin. Backed by science, not influencer hype.`    | 82         | Competitive differentiation |
 
 **A/B test:** D1 vs D3. D1 is feature-led (what we offer), D3 is pain-led (what we solve). Test click-through and landing page bounce rate.
 
@@ -55,9 +55,10 @@
 ```
 
 **Visual direction:**
+
 - Background: White (`#FFFFFF`)
 - Headline: Geist SemiBold 600, 18px, Neutral-900 (`#1C1917`)
-- CTA button: Primary Coral (`#D85959`), white text, 8px radius
+- CTA button: Primary Coral (`#D85959`), white text, full radius
 - Wordmark: Bottom-left, small, Neutral-400
 - No imagery — text-only for clarity at small size
 - Subtle dot-grid pattern at 8% opacity
@@ -73,6 +74,7 @@
 ```
 
 **Visual direction:**
+
 - Background: Neutral-50 (`#FAFAF9`)
 - Wordmark: Left, Coral symbol + Neutral-900 text
 - Headline: "Skincare is healthcare." Geist SemiBold, Neutral-900
@@ -117,6 +119,7 @@
 ```
 
 **Visual direction:**
+
 - Background: White
 - Wordmark at top, divider below
 - Tagline in Cormorant Garamond Light, 20px — the one place we use the display serif in ads
@@ -135,6 +138,7 @@
 #### Feed Ad 1 — "The Plan"
 
 **Visual:**
+
 ```
 ┌────────────────────────────────────┐
 │                                    │
@@ -156,6 +160,7 @@
 ```
 
 **Copy (primary text):**
+
 > You don't need 47 products. You need a plan.
 >
 > Vera builds you a personalized treatment plan based on your skin, your goals, and clinical evidence — not influencer trends.
@@ -171,6 +176,7 @@
 #### Feed Ad 2 — "The Question"
 
 **Visual:**
+
 ```
 ┌────────────────────────────────────┐
 │                                    │
@@ -191,6 +197,7 @@
 **Visual direction:** Text-only card. White card on Neutral-50 background. Geist Light 300, 24px, centered. Wordmark bottom-right. No imagery — lets the question do the work.
 
 **Copy (primary text):**
+
 > We believe skincare is healthcare.
 >
 > That's why every treatment on Vera is backed by clinical studies, every provider is independently verified, and every plan is personalized to your skin tone and goals.
@@ -206,6 +213,7 @@
 #### Feed Ad 3 — "The Stat"
 
 **Visual:**
+
 ```
 ┌────────────────────────────────────┐
 │                                    │
@@ -225,6 +233,7 @@
 **Visual direction:** Large stat number in Geist Light, 72px, Primary-500. Supporting text in Geist Regular, Neutral-700. White background.
 
 **Copy (primary text):**
+
 > The aesthetic treatment industry has a trust problem.
 >
 > Unverified reviews. Hidden pricing. Conflicting information. It's enough to make anyone give up.
@@ -244,6 +253,7 @@
 **Sequence (3 frames, 2s each):**
 
 Frame 1:
+
 ```
 ┌────────────────────┐
 │                    │
@@ -256,6 +266,7 @@ Frame 1:
 ```
 
 Frame 2:
+
 ```
 ┌────────────────────┐
 │                    │
@@ -268,6 +279,7 @@ Frame 2:
 ```
 
 Frame 3:
+
 ```
 ┌────────────────────┐
 │                    │
@@ -398,23 +410,24 @@ CLOSE (18-25s):
 
 ### Audience Segments
 
-| Segment | Age | Interests | Platform Priority |
-|---------|-----|-----------|------------------|
-| "Skin-curious" | 35–45 | Skincare, dermatology, K-beauty, wellness | Instagram, TikTok |
-| "Treatment-ready" | 40–55 | Botox, fillers, aesthetic treatments, med spas | Google Search, Facebook |
+| Segment            | Age   | Interests                                        | Platform Priority         |
+| ------------------ | ----- | ------------------------------------------------ | ------------------------- |
+| "Skin-curious"     | 35–45 | Skincare, dermatology, K-beauty, wellness        | Instagram, TikTok         |
+| "Treatment-ready"  | 40–55 | Botox, fillers, aesthetic treatments, med spas   | Google Search, Facebook   |
 | "Wellness-forward" | 35–50 | Health, fitness, preventive care, organic beauty | Instagram, Google Display |
 
 ### Exclusions
+
 - Exclude audiences interested in cosmetic surgery (too invasive for our positioning)
 - Exclude audiences under 25 (wrong life stage)
 - Exclude males for initial awareness campaign (secondary audience, later phase)
 
 ### Budget Allocation (Awareness Phase)
 
-| Channel | Allocation | Rationale |
-|---------|-----------|-----------|
-| Instagram (Feed + Stories + Reels) | 40% | Primary discovery channel for our audience |
-| Google Search | 25% | Captures active intent ("best botox near me") |
-| TikTok | 20% | Growing 35+ demographic, high organic amplification |
-| Google Display | 10% | Retargeting and brand reinforcement |
-| Facebook Feed | 5% | Supplementary reach for 45+ segment |
+| Channel                            | Allocation | Rationale                                           |
+| ---------------------------------- | ---------- | --------------------------------------------------- |
+| Instagram (Feed + Stories + Reels) | 40%        | Primary discovery channel for our audience          |
+| Google Search                      | 25%        | Captures active intent ("best botox near me")       |
+| TikTok                             | 20%        | Growing 35+ demographic, high organic amplification |
+| Google Display                     | 10%        | Retargeting and brand reinforcement                 |
+| Facebook Feed                      | 5%         | Supplementary reach for 45+ segment                 |

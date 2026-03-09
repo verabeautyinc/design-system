@@ -1,1188 +1,2114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vera Design Tokens</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
-<style>
-  @font-face {
-    font-family: 'Geist';
-    src: local('Geist');
-    font-weight: 100 900;
-  }
-
-  @font-face {
-    font-family: 'Vera Custom';
-    src: url('fonts/VeraCustom.ttf') format('truetype');
-    font-weight: 400;
-    font-display: swap;
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --bg: #FFFFFF;
-    --surface: #FAFAF9;
-    --surface2: #F5F5F3;
-    --border: #E7E5E4;
-    --text: #1C1917;
-    --text2: #57534E;
-    --text3: #78716C;
-    --accent: #D85959;
-    --accent-light: #FEF2F2;
-    --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --display: 'Cormorant Garamond', 'Georgia', serif;
-    --mono: 'Geist Mono', 'SF Mono', 'Consolas', monospace;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* ── Navigation ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 48px;
-  }
-
-  nav .nav-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    height: 56px;
-    overflow-x: auto;
-  }
-
-  nav .brand {
-    font-family: 'Vera Custom', sans-serif;
-    font-size: 26px;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: var(--accent);
-    white-space: nowrap;
-    flex-shrink: 0;
-    text-transform: lowercase;
-  }
-
-  nav a {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text3);
-    text-decoration: none;
-    white-space: nowrap;
-    letter-spacing: 0.01em;
-    transition: color 0.15s ease;
-    padding: 4px 0;
-  }
-  nav a:hover { color: var(--text); }
-
-  /* ── Header ── */
-  .hero {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 80px 48px 64px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .hero h1 {
-    font-family: var(--display);
-    font-size: 56px;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: var(--text);
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero p {
-    margin-top: 16px;
-    font-size: 17px;
-    color: var(--text2);
-    max-width: 560px;
-    line-height: 1.65;
-  }
-
-  /* ── Sections ── */
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 48px;
-  }
-
-  section {
-    padding: 72px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  section:last-child { border-bottom: none; }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  .section-title {
-    font-family: var(--display);
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin-bottom: 8px;
-  }
-
-  .section-desc {
-    font-size: 15px;
-    color: var(--text2);
-    margin-bottom: 48px;
-    max-width: 640px;
-  }
-
-  .subsection {
-    margin-bottom: 48px;
-  }
-
-  .subsection:last-child { margin-bottom: 0; }
-
-  .subsection-title {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text3);
-    margin-bottom: 20px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .token-path {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text3);
-    letter-spacing: 0;
-  }
-
-  /* ── Color Swatches ── */
-  .swatch-strip {
-    display: flex;
-    gap: 2px;
-    margin-bottom: 12px;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .swatch {
-    flex: 1;
-    min-width: 0;
-    aspect-ratio: 1;
-    min-height: 72px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 8px;
-    position: relative;
-    transition: flex 0.2s ease;
-    cursor: default;
-  }
-
-  .swatch:hover { flex: 2; }
-
-  .swatch-info {
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .swatch:hover .swatch-info { opacity: 1; }
-
-  .swatch-hex {
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 400;
-  }
-
-  .swatch-name {
-    font-size: 10px;
-    font-weight: 500;
-  }
-
-  .swatch-desc {
-    font-size: 9px;
-    opacity: 0.8;
-    line-height: 1.3;
-  }
-
-  /* Semantic Colors */
-  .semantic-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-  }
-
-  .semantic-pair {
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  .semantic-pair-label {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 8px 12px;
-    background: var(--surface);
-    color: var(--text2);
-    letter-spacing: 0.02em;
-  }
-
-  .semantic-pair-swatches {
-    display: flex;
-  }
-
-  .semantic-swatch {
-    flex: 1;
-    height: 56px;
-    display: flex;
-    align-items: flex-end;
-    padding: 6px 10px;
-  }
-
-  .semantic-swatch span {
-    font-family: var(--mono);
-    font-size: 10px;
-  }
-
-  /* ── Typography ── */
-  .type-scale-row {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 24px;
-    align-items: baseline;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .type-scale-row:last-child { border-bottom: none; }
-
-  .type-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .type-level {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .type-specs {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text3);
-    line-height: 1.5;
-  }
-
-  .type-sample {
-    color: var(--text);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .font-family-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .font-card {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  .font-card-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text3);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 8px;
-  }
-
-  .font-card-sample {
-    font-size: 28px;
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-
-  .font-card-stack {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text3);
-    word-break: break-all;
-    line-height: 1.5;
-  }
-
-  .weight-row {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .weight-row:last-child { border-bottom: none; }
-
-  .weight-label {
-    font-size: 12px;
-    color: var(--text3);
-    width: 80px;
-    flex-shrink: 0;
-  }
-
-  .weight-value {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text3);
-    width: 40px;
-    flex-shrink: 0;
-  }
-
-  .weight-sample {
-    font-size: 20px;
-  }
-
-  /* ── Spacing ── */
-  .spacing-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 6px 0;
-  }
-
-  .spacing-label {
-    width: 80px;
-    flex-shrink: 0;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text3);
-    text-align: right;
-  }
-
-  .spacing-bar {
-    height: 20px;
-    background: var(--accent);
-    border-radius: 4px;
-    opacity: 0.8;
-    transition: opacity 0.15s;
-    min-width: 1px;
-  }
-
-  .spacing-row:hover .spacing-bar { opacity: 1; }
-
-  .spacing-px {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text3);
-    flex-shrink: 0;
-  }
-
-  /* ── Border Radius ── */
-  .radius-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: end;
-  }
-
-  .radius-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .radius-box {
-    width: 72px;
-    height: 72px;
-    background: var(--accent-light);
-    border: 2px solid var(--accent);
-  }
-
-  .radius-info {
-    text-align: center;
-  }
-
-  .radius-name {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .radius-value {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text3);
-  }
-
-  /* ── Shadows ── */
-  .shadow-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    align-items: start;
-  }
-
-  .shadow-card {
-    width: 140px;
-    height: 100px;
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  .shadow-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .shadow-value {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--text3);
-    text-align: center;
-    max-width: 120px;
-    line-height: 1.4;
-    word-break: break-word;
-  }
-
-  /* ── Tables ── */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-
-  .data-table th {
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text3);
-    padding: 8px 16px 8px 0;
-    border-bottom: 2px solid var(--border);
-  }
-
-  .data-table td {
-    padding: 10px 16px 10px 0;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-
-  .data-table tr:last-child td { border-bottom: none; }
-
-  .data-table .mono {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text2);
-  }
-
-  /* ── Breakpoints ── */
-  .breakpoint-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .bp-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .bp-label {
-    width: 48px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text3);
-    text-align: right;
-    flex-shrink: 0;
-  }
-
-  .bp-bar-wrap {
-    flex: 1;
-    height: 28px;
-    background: var(--surface);
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .bp-bar {
-    height: 100%;
-    background: var(--accent);
-    opacity: 0.15;
-    border-radius: 6px;
-    transition: opacity 0.15s;
-  }
-
-  .bp-row:hover .bp-bar { opacity: 0.3; }
-
-  .bp-px {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text3);
-    width: 56px;
-    flex-shrink: 0;
-  }
-
-  /* ── Grid Specs ── */
-  .grid-specs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
-
-  .grid-card {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  .grid-card-title {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    text-transform: capitalize;
-  }
-
-  .grid-card-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 0;
-    font-size: 13px;
-  }
-
-  .grid-card-row span:first-child { color: var(--text3); }
-  .grid-card-row span:last-child {
-    font-family: var(--mono);
-    font-size: 12px;
-  }
-
-  /* ── Animation ── */
-  .anim-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-  }
-
-  .anim-card {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .anim-card-label {
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .anim-card-value {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text3);
-  }
-
-  .anim-track {
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 2px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .anim-dot {
-    position: absolute;
-    top: -4px;
-    left: 0;
-    width: 12px;
-    height: 12px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: anim-slide 2s infinite;
-  }
-
-  @keyframes anim-slide {
-    0%, 100% { left: 0; }
-    50% { left: calc(100% - 12px); }
-  }
-
-  /* ── Components ── */
-  .comp-section {
-    margin-bottom: 40px;
-  }
-
-  .comp-section:last-child { margin-bottom: 0; }
-
-  .comp-title {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    text-transform: capitalize;
-  }
-
-  .button-demos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .btn-demo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent);
-    color: white;
-    font-family: var(--sans);
-    border: none;
-    cursor: default;
-    font-weight: 500;
-    position: relative;
-  }
-
-  .btn-demo-label {
-    font-size: 11px;
-    color: var(--text3);
-    text-align: center;
-    margin-top: 6px;
-    font-family: var(--mono);
-  }
-
-  .avatar-demos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: end;
-  }
-
-  .avatar-demo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .avatar-circle {
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-light), var(--accent));
-    opacity: 0.8;
-  }
-
-  .avatar-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text3);
-    text-align: center;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 768px) {
-    nav { padding: 0 24px; }
-    .hero { padding: 48px 24px 40px; }
-    .hero h1 { font-size: 36px; }
-    .container { padding: 0 24px; }
-    section { padding: 48px 0; }
-    .type-scale-row { grid-template-columns: 1fr; gap: 8px; }
-    .section-title { font-size: 26px; }
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-inner">
-    <span class="brand">Vera</span>
-    <a href="#colors">Colors</a>
-    <a href="#typography">Typography</a>
-    <a href="#spacing">Spacing</a>
-    <a href="#radius">Radius</a>
-    <a href="#shadows">Shadows</a>
-    <a href="#zindex">Z-Index</a>
-    <a href="#breakpoints">Breakpoints</a>
-    <a href="#grid">Grid</a>
-    <a href="#animation">Animation</a>
-    <a href="#components">Components</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <h1>Design <em>Tokens</em></h1>
-  <p>The complete visual language for Vera Beauty. Every color, measurement, and motion value that shapes the experience across mobile, web, and Figma.</p>
-</div>
-
-<div class="container">
-  <div id="app"></div>
-</div>
-
-<script>
-const TOKENS = {"$schema":"https://design-tokens.github.io/community-group/format/","vera":{"color":{"primary":{"50":{"$value":"#FEF2F2","$type":"color","$description":"Tinted backgrounds, hover states"},"100":{"$value":"#FDE3E3","$type":"color","$description":"Light fills, selected states"},"200":{"$value":"#FCCBCB","$type":"color","$description":"Borders, dividers"},"300":{"$value":"#F9A8A8","$type":"color","$description":"Muted accents"},"400":{"$value":"#F07878","$type":"color","$description":"Hover state on primary"},"500":{"$value":"#D85959","$type":"color","$description":"Primary brand — buttons, links, key actions"},"600":{"$value":"#C44242","$type":"color","$description":"Active/pressed state"},"700":{"$value":"#A33434","$type":"color","$description":"High-emphasis text on light bg"},"800":{"$value":"#872D2D","$type":"color","$description":"Dark accents"},"900":{"$value":"#722B2B","$type":"color","$description":"Deepest accent"},"950":{"$value":"#3E1212","$type":"color","$description":"Near-black brand tint"}},"neutral":{"0":{"$value":"#FFFFFF","$type":"color","$description":"Page backgrounds, cards"},"50":{"$value":"#FAFAF9","$type":"color","$description":"Subtle backgrounds"},"100":{"$value":"#F5F5F3","$type":"color","$description":"Section backgrounds"},"200":{"$value":"#E7E5E4","$type":"color","$description":"Borders, dividers"},"300":{"$value":"#D6D3D1","$type":"color","$description":"Disabled backgrounds"},"400":{"$value":"#A8A29E","$type":"color","$description":"Placeholder text"},"500":{"$value":"#78716C","$type":"color","$description":"Secondary text"},"600":{"$value":"#57534E","$type":"color","$description":"Body text (dark bg)"},"700":{"$value":"#44403C","$type":"color","$description":"Primary text (dark bg)"},"800":{"$value":"#292524","$type":"color","$description":"Surface (dark mode)"},"900":{"$value":"#1C1917","$type":"color","$description":"Background (dark mode)"},"950":{"$value":"#0C0A09","$type":"color","$description":"Deepest dark"}},"success":{"50":{"$value":"#F0FDF4","$type":"color"},"100":{"$value":"#DCFCE7","$type":"color"},"500":{"$value":"#16A34A","$type":"color"},"700":{"$value":"#15803D","$type":"color"},"900":{"$value":"#14532D","$type":"color"}},"warning":{"50":{"$value":"#FEFCE8","$type":"color"},"100":{"$value":"#FEF9C3","$type":"color"},"500":{"$value":"#CA8A04","$type":"color"},"700":{"$value":"#A16207","$type":"color"},"900":{"$value":"#713F12","$type":"color"}},"error":{"50":{"$value":"#FEF2F2","$type":"color"},"100":{"$value":"#FEE2E2","$type":"color"},"500":{"$value":"#EF4444","$type":"color"},"700":{"$value":"#B91C1C","$type":"color"},"900":{"$value":"#7F1D1D","$type":"color"}},"info":{"50":{"$value":"#EFF6FF","$type":"color"},"100":{"$value":"#DBEAFE","$type":"color"},"500":{"$value":"#3B82F6","$type":"color"},"700":{"$value":"#1D4ED8","$type":"color"},"900":{"$value":"#1E3A8A","$type":"color"}},"mst":{"10":{"$value":"#292420","$type":"color"},"$description":"Monk Skin Tone Scale — 10-point inclusive skin tone representation","01":{"$value":"#F6EDE4","$type":"color"},"02":{"$value":"#F3E7DB","$type":"color"},"03":{"$value":"#F7EAD0","$type":"color"},"04":{"$value":"#EADABA","$type":"color"},"05":{"$value":"#D7BD96","$type":"color"},"06":{"$value":"#A07E56","$type":"color"},"07":{"$value":"#825C43","$type":"color"},"08":{"$value":"#604134","$type":"color"},"09":{"$value":"#3A312A","$type":"color"}},"semantic":{"$description":"Mapped semantic colors for light and dark mode","background":{"light":{"$value":"#FFFFFF","$type":"color"},"dark":{"$value":"#1C1917","$type":"color"}},"surface1":{"light":{"$value":"#FAFAF9","$type":"color"},"dark":{"$value":"#292524","$type":"color"}},"surface2":{"light":{"$value":"#F5F5F3","$type":"color"},"dark":{"$value":"#44403C","$type":"color"}},"surface3":{"light":{"$value":"#E7E5E4","$type":"color"},"dark":{"$value":"#57534E","$type":"color"}},"textPrimary":{"light":{"$value":"#1C1917","$type":"color"},"dark":{"$value":"#FAFAF9","$type":"color"}},"textSecondary":{"light":{"$value":"#57534E","$type":"color"},"dark":{"$value":"#D6D3D1","$type":"color"}},"textTertiary":{"light":{"$value":"#78716C","$type":"color"},"dark":{"$value":"#A8A29E","$type":"color"}},"textDisabled":{"light":{"$value":"#A8A29E","$type":"color"},"dark":{"$value":"#78716C","$type":"color"}},"border":{"light":{"$value":"#E7E5E4","$type":"color"},"dark":{"$value":"#44403C","$type":"color"}},"brandAccent":{"light":{"$value":"#D85959","$type":"color"},"dark":{"$value":"#F07878","$type":"color"}},"link":{"light":{"$value":"#D85959","$type":"color"},"dark":{"$value":"#F9A8A8","$type":"color"}}}},"typography":{"fontFamily":{"sans":{"$value":"'Geist', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif","$type":"fontFamily"},"display":{"$value":"'Cormorant Garamond', 'Georgia', serif","$type":"fontFamily"},"vera":{"$value":"'Vera Custom', sans-serif","$type":"fontFamily","$description":"Proprietary wordmark font — logo use only"},"mono":{"$value":"'Geist Mono', 'SF Mono', 'Consolas', monospace","$type":"fontFamily"}},"fontWeight":{"thin":{"$value":100,"$type":"fontWeight"},"extralight":{"$value":200,"$type":"fontWeight"},"light":{"$value":300,"$type":"fontWeight"},"regular":{"$value":400,"$type":"fontWeight"},"medium":{"$value":500,"$type":"fontWeight"},"semibold":{"$value":600,"$type":"fontWeight"},"bold":{"$value":700,"$type":"fontWeight"},"extrabold":{"$value":800,"$type":"fontWeight"},"black":{"$value":900,"$type":"fontWeight"}},"scale":{"mobile":{"display":{"fontSize":{"$value":"34px","$type":"dimension"},"lineHeight":{"$value":"40px","$type":"dimension"},"letterSpacing":{"$value":"-0.4px","$type":"dimension"},"fontWeight":{"$value":300,"$type":"fontWeight"}},"headline":{"fontSize":{"$value":"28px","$type":"dimension"},"lineHeight":{"$value":"34px","$type":"dimension"},"letterSpacing":{"$value":"-0.3px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"title1":{"fontSize":{"$value":"22px","$type":"dimension"},"lineHeight":{"$value":"28px","$type":"dimension"},"letterSpacing":{"$value":"-0.2px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"title2":{"fontSize":{"$value":"20px","$type":"dimension"},"lineHeight":{"$value":"26px","$type":"dimension"},"letterSpacing":{"$value":"-0.1px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"title3":{"fontSize":{"$value":"17px","$type":"dimension"},"lineHeight":{"$value":"24px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"body":{"fontSize":{"$value":"17px","$type":"dimension"},"lineHeight":{"$value":"26px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"callout":{"fontSize":{"$value":"16px","$type":"dimension"},"lineHeight":{"$value":"22px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"subheadline":{"fontSize":{"$value":"15px","$type":"dimension"},"lineHeight":{"$value":"22px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":500,"$type":"fontWeight"}},"footnote":{"fontSize":{"$value":"13px","$type":"dimension"},"lineHeight":{"$value":"18px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"caption1":{"fontSize":{"$value":"12px","$type":"dimension"},"lineHeight":{"$value":"16px","$type":"dimension"},"letterSpacing":{"$value":"0.1px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"caption2":{"fontSize":{"$value":"11px","$type":"dimension"},"lineHeight":{"$value":"14px","$type":"dimension"},"letterSpacing":{"$value":"0.2px","$type":"dimension"},"fontWeight":{"$value":500,"$type":"fontWeight"}}},"desktop":{"display":{"fontSize":{"$value":"48px","$type":"dimension"},"lineHeight":{"$value":"56px","$type":"dimension"},"letterSpacing":{"$value":"-0.6px","$type":"dimension"},"fontWeight":{"$value":300,"$type":"fontWeight"}},"headline":{"fontSize":{"$value":"36px","$type":"dimension"},"lineHeight":{"$value":"44px","$type":"dimension"},"letterSpacing":{"$value":"-0.4px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"title1":{"fontSize":{"$value":"28px","$type":"dimension"},"lineHeight":{"$value":"36px","$type":"dimension"},"letterSpacing":{"$value":"-0.3px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"title2":{"fontSize":{"$value":"24px","$type":"dimension"},"lineHeight":{"$value":"30px","$type":"dimension"},"letterSpacing":{"$value":"-0.2px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"title3":{"fontSize":{"$value":"20px","$type":"dimension"},"lineHeight":{"$value":"26px","$type":"dimension"},"letterSpacing":{"$value":"-0.1px","$type":"dimension"},"fontWeight":{"$value":600,"$type":"fontWeight"}},"body":{"fontSize":{"$value":"17px","$type":"dimension"},"lineHeight":{"$value":"28px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"callout":{"fontSize":{"$value":"16px","$type":"dimension"},"lineHeight":{"$value":"24px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"subheadline":{"fontSize":{"$value":"15px","$type":"dimension"},"lineHeight":{"$value":"22px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":500,"$type":"fontWeight"}},"footnote":{"fontSize":{"$value":"13px","$type":"dimension"},"lineHeight":{"$value":"18px","$type":"dimension"},"letterSpacing":{"$value":"0px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"caption1":{"fontSize":{"$value":"12px","$type":"dimension"},"lineHeight":{"$value":"16px","$type":"dimension"},"letterSpacing":{"$value":"0.1px","$type":"dimension"},"fontWeight":{"$value":400,"$type":"fontWeight"}},"caption2":{"fontSize":{"$value":"11px","$type":"dimension"},"lineHeight":{"$value":"14px","$type":"dimension"},"letterSpacing":{"$value":"0.2px","$type":"dimension"},"fontWeight":{"$value":500,"$type":"fontWeight"}}}}},"spacing":{"0":{"$value":"0px","$type":"dimension"},"1":{"$value":"4px","$type":"dimension"},"2":{"$value":"8px","$type":"dimension"},"3":{"$value":"12px","$type":"dimension"},"4":{"$value":"16px","$type":"dimension"},"5":{"$value":"20px","$type":"dimension"},"6":{"$value":"24px","$type":"dimension"},"8":{"$value":"32px","$type":"dimension"},"10":{"$value":"40px","$type":"dimension"},"12":{"$value":"48px","$type":"dimension"},"16":{"$value":"64px","$type":"dimension"},"20":{"$value":"80px","$type":"dimension"},"24":{"$value":"96px","$type":"dimension"},"32":{"$value":"128px","$type":"dimension"},"0.5":{"$value":"2px","$type":"dimension"},"1.5":{"$value":"6px","$type":"dimension"}},"borderRadius":{"none":{"$value":"0px","$type":"dimension"},"sm":{"$value":"4px","$type":"dimension"},"md":{"$value":"8px","$type":"dimension"},"lg":{"$value":"12px","$type":"dimension"},"xl":{"$value":"16px","$type":"dimension"},"2xl":{"$value":"24px","$type":"dimension"},"full":{"$value":"9999px","$type":"dimension"}},"shadow":{"none":{"$value":"none","$type":"shadow"},"xs":{"$value":"0 1px 2px rgba(28, 25, 23, 0.05)","$type":"shadow"},"sm":{"$value":"0 1px 3px rgba(28, 25, 23, 0.08), 0 1px 2px rgba(28, 25, 23, 0.04)","$type":"shadow"},"md":{"$value":"0 4px 6px rgba(28, 25, 23, 0.07), 0 2px 4px rgba(28, 25, 23, 0.04)","$type":"shadow"},"lg":{"$value":"0 10px 15px rgba(28, 25, 23, 0.08), 0 4px 6px rgba(28, 25, 23, 0.04)","$type":"shadow"},"xl":{"$value":"0 20px 25px rgba(28, 25, 23, 0.10), 0 8px 10px rgba(28, 25, 23, 0.05)","$type":"shadow"}},"zIndex":{"base":{"$value":0,"$type":"number"},"raised":{"$value":10,"$type":"number"},"dropdown":{"$value":100,"$type":"number"},"sticky":{"$value":200,"$type":"number"},"overlay":{"$value":300,"$type":"number"},"modal":{"$value":400,"$type":"number"},"toast":{"$value":500,"$type":"number"},"tooltip":{"$value":600,"$type":"number"},"maximum":{"$value":9999,"$type":"number"}},"breakpoint":{"xs":{"$value":"0px","$type":"dimension"},"sm":{"$value":"375px","$type":"dimension"},"md":{"$value":"768px","$type":"dimension"},"lg":{"$value":"1024px","$type":"dimension"},"xl":{"$value":"1280px","$type":"dimension"},"2xl":{"$value":"1440px","$type":"dimension"},"3xl":{"$value":"1920px","$type":"dimension"}},"grid":{"mobile":{"columns":{"$value":4,"$type":"number"},"gutter":{"$value":"16px","$type":"dimension"},"margin":{"$value":"16px","$type":"dimension"}},"tablet":{"columns":{"$value":8,"$type":"number"},"gutter":{"$value":"20px","$type":"dimension"},"margin":{"$value":"32px","$type":"dimension"}},"desktop":{"columns":{"$value":12,"$type":"number"},"gutter":{"$value":"24px","$type":"dimension"},"margin":{"$value":"80px","$type":"dimension"},"maxContentWidth":{"$value":"1280px","$type":"dimension"}}},"animation":{"duration":{"fast":{"$value":"150ms","$type":"duration"},"normal":{"$value":"200ms","$type":"duration"},"slow":{"$value":"300ms","$type":"duration"},"slower":{"$value":"400ms","$type":"duration"}},"easing":{"default":{"$value":"ease-in-out","$type":"cubicBezier"},"in":{"$value":"ease-in","$type":"cubicBezier"},"out":{"$value":"ease-out","$type":"cubicBezier"}}},"component":{"button":{"small":{"height":{"$value":"32px","$type":"dimension"},"paddingX":{"$value":"12px","$type":"dimension"},"fontSize":{"$value":"13px","$type":"dimension"},"iconSize":{"$value":"14px","$type":"dimension"},"borderRadius":{"$value":"8px","$type":"dimension"}},"medium":{"height":{"$value":"40px","$type":"dimension"},"paddingX":{"$value":"16px","$type":"dimension"},"fontSize":{"$value":"16px","$type":"dimension"},"iconSize":{"$value":"16px","$type":"dimension"},"borderRadius":{"$value":"8px","$type":"dimension"}},"large":{"height":{"$value":"48px","$type":"dimension"},"paddingX":{"$value":"20px","$type":"dimension"},"fontSize":{"$value":"17px","$type":"dimension"},"iconSize":{"$value":"18px","$type":"dimension"},"borderRadius":{"$value":"8px","$type":"dimension"}},"xlarge":{"height":{"$value":"56px","$type":"dimension"},"paddingX":{"$value":"24px","$type":"dimension"},"fontSize":{"$value":"17px","$type":"dimension"},"iconSize":{"$value":"20px","$type":"dimension"},"borderRadius":{"$value":"12px","$type":"dimension"}}},"input":{"height":{"mobile":{"$value":"44px","$type":"dimension"},"desktop":{"$value":"40px","$type":"dimension"}},"paddingX":{"$value":"12px","$type":"dimension"},"paddingY":{"$value":"10px","$type":"dimension"},"borderRadius":{"$value":"8px","$type":"dimension"},"borderWidth":{"$value":"1px","$type":"dimension"},"focusBorderWidth":{"$value":"2px","$type":"dimension"}},"card":{"padding":{"mobile":{"$value":"16px","$type":"dimension"},"tablet":{"$value":"20px","$type":"dimension"},"desktop":{"$value":"24px","$type":"dimension"}},"borderRadius":{"$value":"12px","$type":"dimension"},"gap":{"mobile":{"$value":"16px","$type":"dimension"},"desktop":{"$value":"24px","$type":"dimension"}}},"avatar":{"xsmall":{"$value":"24px","$type":"dimension"},"small":{"$value":"32px","$type":"dimension"},"medium":{"$value":"40px","$type":"dimension"},"large":{"$value":"56px","$type":"dimension"},"xlarge":{"$value":"80px","$type":"dimension"},"xxlarge":{"$value":"120px","$type":"dimension"}},"header":{"height":{"desktop":{"$value":"64px","$type":"dimension"},"mobile":{"$value":"56px","$type":"dimension"},"compact":{"$value":"48px","$type":"dimension"}}},"tabBar":{"height":{"$value":"49px","$type":"dimension","$description":"Excludes safe area inset"},"iconSize":{"$value":"24px","$type":"dimension"}},"sidebar":{"widthExpanded":{"$value":"280px","$type":"dimension"},"widthCollapsed":{"$value":"64px","$type":"dimension"}},"modal":{"small":{"$value":"400px","$type":"dimension"},"medium":{"$value":"560px","$type":"dimension"},"large":{"$value":"720px","$type":"dimension"},"borderRadius":{"$value":"12px","$type":"dimension"},"backdropOpacity":{"$value":0.5,"$type":"number"}},"toast":{"minWidth":{"$value":"240px","$type":"dimension"},"maxWidth":{"$value":"480px","$type":"dimension"},"autoDismiss":{"$value":"4000ms","$type":"duration"},"autoDismissWithAction":{"$value":"6000ms","$type":"duration"},"maxStack":{"$value":3,"$type":"number"}},"focusRing":{"width":{"$value":"2px","$type":"dimension"},"offset":{"$value":"2px","$type":"dimension"},"color":{"light":{"$value":"#D85959","$type":"color"},"dark":{"$value":"#F07878","$type":"color"}}}}}};
-
-const T = TOKENS.vera;
-
-// Helpers
-const v = (token) => token?.$value;
-const isToken = (obj) => obj && typeof obj === 'object' && '$value' in obj;
-const textColor = (hex) => {
-  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
-  return (r*0.299 + g*0.587 + b*0.114) > 150 ? '#1C1917' : '#FAFAF9';
-};
-const px = (val) => parseInt(String(val));
-const h = (tag, attrs = {}, ...children) => {
-  const el = document.createElement(tag);
-  for (const [k, val] of Object.entries(attrs)) {
-    if (k === 'style' && typeof val === 'object') Object.assign(el.style, val);
-    else if (k.startsWith('on')) el.addEventListener(k.slice(2).toLowerCase(), val);
-    else el.setAttribute(k, val);
-  }
-  for (const c of children.flat()) {
-    if (typeof c === 'string' || typeof c === 'number') el.appendChild(document.createTextNode(c));
-    else if (c) el.appendChild(c);
-  }
-  return el;
-};
-
-function makeSection(id, label, title, desc, content) {
-  const s = h('section', { id },
-    h('div', { class: 'section-label' }, label),
-    h('div', { class: 'section-title' }, title),
-    h('div', { class: 'section-desc' }, desc),
-    content
-  );
-  return s;
-}
-
-// ── COLORS ──
-function renderColors() {
-  const wrap = h('div');
-  const colorGroups = ['primary','neutral','success','warning','error','info','mst'];
-
-  for (const group of colorGroups) {
-    const data = T.color[group];
-    const tokens = Object.entries(data).filter(([k, v]) => isToken(v));
-    const sub = h('div', { class: 'subsection' });
-    const desc = data.$description ? ` — ${data.$description}` : '';
-    sub.appendChild(h('div', { class: 'subsection-title' }, `${group}${desc}`));
-    const strip = h('div', { class: 'swatch-strip' });
-    for (const [key, token] of tokens) {
-      const hex = v(token);
-      const tc = textColor(hex);
-      const swatch = h('div', { class: 'swatch', style: { background: hex } },
-        h('div', { class: 'swatch-info', style: { color: tc } },
-          h('div', { class: 'swatch-hex' }, hex),
-          h('div', { class: 'swatch-name' }, `color.${group}.${key}`),
-          token.$description ? h('div', { class: 'swatch-desc' }, token.$description) : null
-        )
-      );
-      strip.appendChild(swatch);
-    }
-    sub.appendChild(strip);
-    wrap.appendChild(sub);
-  }
-
-  // Semantic
-  const sem = T.color.semantic;
-  const semSub = h('div', { class: 'subsection' });
-  semSub.appendChild(h('div', { class: 'subsection-title' }, 'Semantic — Light / Dark mode pairs'));
-  const semGrid = h('div', { class: 'semantic-grid' });
-  for (const [name, pair] of Object.entries(sem)) {
-    if (name.startsWith('$')) continue;
-    const lightHex = v(pair.light);
-    const darkHex = v(pair.dark);
-    const card = h('div', { class: 'semantic-pair' },
-      h('div', { class: 'semantic-pair-label' }, name),
-      h('div', { class: 'semantic-pair-swatches' },
-        h('div', { class: 'semantic-swatch', style: { background: lightHex } },
-          h('span', { style: { color: textColor(lightHex) } }, lightHex)
-        ),
-        h('div', { class: 'semantic-swatch', style: { background: darkHex } },
-          h('span', { style: { color: textColor(darkHex) } }, darkHex)
-        )
-      )
-    );
-    semGrid.appendChild(card);
-  }
-  semSub.appendChild(semGrid);
-  wrap.appendChild(semSub);
-  return wrap;
-}
-
-// ── TYPOGRAPHY ──
-function renderTypography() {
-  const wrap = h('div');
-
-  // Font families
-  const ffSub = h('div', { class: 'subsection' });
-  ffSub.appendChild(h('div', { class: 'subsection-title' }, 'Font Families'));
-  const ffGrid = h('div', { class: 'font-family-grid' });
-  for (const [name, token] of Object.entries(T.typography.fontFamily)) {
-    const stack = v(token);
-    const card = h('div', { class: 'font-card' },
-      h('div', { class: 'font-card-label' }, name),
-      h('div', { class: 'font-card-sample', style: { fontFamily: stack } }, 'Age beautifully'),
-      h('div', { class: 'font-card-stack' }, stack),
-      token.$description ? h('div', { style: { fontSize: '11px', color: '#78716C', marginTop: '6px' } }, token.$description) : null
-    );
-    ffGrid.appendChild(card);
-  }
-  ffSub.appendChild(ffGrid);
-  wrap.appendChild(ffSub);
-
-  // Font weights
-  const fwSub = h('div', { class: 'subsection' });
-  fwSub.appendChild(h('div', { class: 'subsection-title' }, 'Font Weights'));
-  for (const [name, token] of Object.entries(T.typography.fontWeight)) {
-    fwSub.appendChild(h('div', { class: 'weight-row' },
-      h('span', { class: 'weight-label' }, name),
-      h('span', { class: 'weight-value' }, String(v(token))),
-      h('span', { class: 'weight-sample', style: { fontWeight: v(token) } }, 'Vera Beauty')
-    ));
-  }
-  wrap.appendChild(fwSub);
-
-  // Type scales
-  for (const platform of ['desktop', 'mobile']) {
-    const scale = T.typography.scale[platform];
-    const sub = h('div', { class: 'subsection' });
-    sub.appendChild(h('div', { class: 'subsection-title' }, `Type Scale — ${platform}`));
-    for (const [level, props] of Object.entries(scale)) {
-      const fs = v(props.fontSize);
-      const lh = v(props.lineHeight);
-      const ls = v(props.letterSpacing);
-      const fw = v(props.fontWeight);
-      const row = h('div', { class: 'type-scale-row' },
-        h('div', { class: 'type-meta' },
-          h('div', { class: 'type-level' }, level),
-          h('div', { class: 'type-specs' }, `${fs} / ${lh}\n${ls} ls · ${fw} wt`)
-        ),
-        h('div', { class: 'type-sample', style: {
-          fontSize: fs, lineHeight: lh, letterSpacing: ls, fontWeight: fw
-        }}, 'Age beautifully, backed by science')
-      );
-      sub.appendChild(row);
-    }
-    wrap.appendChild(sub);
-  }
-
-  return wrap;
-}
-
-// ── SPACING ──
-function renderSpacing() {
-  const wrap = h('div');
-  const maxPx = 128;
-  for (const [key, token] of Object.entries(T.spacing)) {
-    const pxVal = px(v(token));
-    const pct = Math.max((pxVal / maxPx) * 100, 0.5);
-    wrap.appendChild(h('div', { class: 'spacing-row' },
-      h('div', { class: 'spacing-label' }, `spacing.${key}`),
-      h('div', { class: 'spacing-bar', style: { width: pct + '%' } }),
-      h('div', { class: 'spacing-px' }, v(token))
-    ));
-  }
-  return wrap;
-}
-
-// ── BORDER RADIUS ──
-function renderRadius() {
-  const grid = h('div', { class: 'radius-grid' });
-  for (const [key, token] of Object.entries(T.borderRadius)) {
-    const val = v(token);
-    grid.appendChild(h('div', { class: 'radius-item' },
-      h('div', { class: 'radius-box', style: { borderRadius: val } }),
-      h('div', { class: 'radius-info' },
-        h('div', { class: 'radius-name' }, key),
-        h('div', { class: 'radius-value' }, val)
-      )
-    ));
-  }
-  return grid;
-}
-
-// ── SHADOWS ──
-function renderShadows() {
-  const grid = h('div', { class: 'shadow-grid' });
-  for (const [key, token] of Object.entries(T.shadow)) {
-    const val = v(token);
-    grid.appendChild(h('div', { class: 'shadow-card', style: { boxShadow: val === 'none' ? 'none' : val, border: val === 'none' ? '1px solid #E7E5E4' : 'none' } },
-      h('div', { class: 'shadow-name' }, key),
-      h('div', { class: 'shadow-value' }, val === 'none' ? 'none' : val.length > 40 ? val.slice(0,40) + '...' : val)
-    ));
-  }
-  return grid;
-}
-
-// ── Z-INDEX ──
-function renderZIndex() {
-  const table = h('table', { class: 'data-table' },
-    h('thead', {},
-      h('tr', {},
-        h('th', {}, 'Token'),
-        h('th', {}, 'Value'),
-        h('th', {}, 'Visual')
-      )
-    )
-  );
-  const tbody = h('tbody');
-  const maxZ = 9999;
-  for (const [key, token] of Object.entries(T.zIndex)) {
-    const val = v(token);
-    const pct = val === 9999 ? 100 : (val / 600) * 80;
-    tbody.appendChild(h('tr', {},
-      h('td', { class: 'mono' }, `zIndex.${key}`),
-      h('td', { class: 'mono' }, String(val)),
-      h('td', {},
-        h('div', { style: { width: pct + '%', height: '8px', background: '#D85959', borderRadius: '4px', opacity: '0.6', minWidth: '2px' } })
-      )
-    ));
-  }
-  table.appendChild(tbody);
-  return table;
-}
-
-// ── BREAKPOINTS ──
-function renderBreakpoints() {
-  const wrap = h('div', { class: 'breakpoint-bars' });
-  const maxBp = 1920;
-  for (const [key, token] of Object.entries(T.breakpoint)) {
-    const pxVal = px(v(token));
-    const pct = Math.max((pxVal / maxBp) * 100, 0.5);
-    wrap.appendChild(h('div', { class: 'bp-row' },
-      h('div', { class: 'bp-label' }, key),
-      h('div', { class: 'bp-bar-wrap' },
-        h('div', { class: 'bp-bar', style: { width: pct + '%' } })
-      ),
-      h('div', { class: 'bp-px' }, v(token))
-    ));
-  }
-  return wrap;
-}
-
-// ── GRID ──
-function renderGrid() {
-  const wrap = h('div', { class: 'grid-specs' });
-  for (const [platform, props] of Object.entries(T.grid)) {
-    const card = h('div', { class: 'grid-card' },
-      h('div', { class: 'grid-card-title' }, platform)
-    );
-    for (const [prop, token] of Object.entries(props)) {
-      if (!isToken(token)) continue;
-      const label = prop.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
-      card.appendChild(h('div', { class: 'grid-card-row' },
-        h('span', {}, label),
-        h('span', {}, String(v(token)))
-      ));
-    }
-    wrap.appendChild(card);
-  }
-  return wrap;
-}
-
-// ── ANIMATION ──
-function renderAnimation() {
-  const wrap = h('div');
-
-  // Durations
-  const durSub = h('div', { class: 'subsection' });
-  durSub.appendChild(h('div', { class: 'subsection-title' }, 'Duration'));
-  const durGrid = h('div', { class: 'anim-grid' });
-  for (const [key, token] of Object.entries(T.animation.duration)) {
-    const ms = px(v(token));
-    const card = h('div', { class: 'anim-card' },
-      h('div', { class: 'anim-card-label' }, key),
-      h('div', { class: 'anim-card-value' }, v(token)),
-      h('div', { class: 'anim-track' },
-        h('div', { class: 'anim-dot', style: { animationDuration: (ms * 2 + 1000) + 'ms', animationTimingFunction: 'ease-in-out' } })
-      )
-    );
-    durGrid.appendChild(card);
-  }
-  durSub.appendChild(durGrid);
-  wrap.appendChild(durSub);
-
-  // Easings
-  const easeSub = h('div', { class: 'subsection' });
-  easeSub.appendChild(h('div', { class: 'subsection-title' }, 'Easing'));
-  const easeGrid = h('div', { class: 'anim-grid' });
-  for (const [key, token] of Object.entries(T.animation.easing)) {
-    const card = h('div', { class: 'anim-card' },
-      h('div', { class: 'anim-card-label' }, key),
-      h('div', { class: 'anim-card-value' }, v(token)),
-      h('div', { class: 'anim-track' },
-        h('div', { class: 'anim-dot', style: { animationTimingFunction: v(token) } })
-      )
-    );
-    easeGrid.appendChild(card);
-  }
-  easeSub.appendChild(easeGrid);
-  wrap.appendChild(easeSub);
-
-  return wrap;
-}
-
-// ── COMPONENTS ──
-function renderComponents() {
-  const wrap = h('div');
-
-  // Buttons
-  const btnSec = h('div', { class: 'comp-section' });
-  btnSec.appendChild(h('div', { class: 'subsection-title' }, 'Button Sizes'));
-  const btnRow = h('div', { class: 'button-demos' });
-  for (const [size, props] of Object.entries(T.component.button)) {
-    const col = h('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'center' } });
-    col.appendChild(h('div', { class: 'btn-demo', style: {
-      height: v(props.height),
-      paddingLeft: v(props.paddingX),
-      paddingRight: v(props.paddingX),
-      fontSize: v(props.fontSize),
-      borderRadius: v(props.borderRadius),
-    }}, `Button ${size}`));
-    col.appendChild(h('div', { class: 'btn-demo-label' }, `${v(props.height)} · ${v(props.paddingX)} px`));
-    btnRow.appendChild(col);
-  }
-  btnSec.appendChild(btnRow);
-  wrap.appendChild(btnSec);
-
-  // Avatars
-  const avSec = h('div', { class: 'comp-section' });
-  avSec.appendChild(h('div', { class: 'subsection-title' }, 'Avatar Sizes'));
-  const avRow = h('div', { class: 'avatar-demos' });
-  for (const [size, token] of Object.entries(T.component.avatar)) {
-    const dim = v(token);
-    avRow.appendChild(h('div', { class: 'avatar-demo' },
-      h('div', { class: 'avatar-circle', style: { width: dim, height: dim } }),
-      h('div', { class: 'avatar-label' }, `${size}\n${dim}`)
-    ));
-  }
-  avSec.appendChild(avRow);
-  wrap.appendChild(avSec);
-
-  // Other components as table
-  const otherComps = ['input','card','header','tabBar','sidebar','modal','toast','focusRing'];
-  for (const comp of otherComps) {
-    const data = T.component[comp];
-    if (!data) continue;
-    const sec = h('div', { class: 'comp-section' });
-    const label = comp.replace(/([a-z])([A-Z])/g, '$1 $2');
-    sec.appendChild(h('div', { class: 'subsection-title' }, label));
-    const table = h('table', { class: 'data-table' },
-      h('thead', {}, h('tr', {},
-        h('th', {}, 'Property'),
-        h('th', {}, 'Value')
-      ))
-    );
-    const tbody = h('tbody');
-    function flatten(obj, prefix) {
-      for (const [k, val] of Object.entries(obj)) {
-        if (k.startsWith('$')) continue;
-        const path = prefix ? `${prefix}.${k}` : k;
-        if (isToken(val)) {
-          tbody.appendChild(h('tr', {},
-            h('td', { class: 'mono' }, `component.${comp}.${path}`),
-            h('td', { class: 'mono' }, String(v(val)))
-          ));
-        } else if (typeof val === 'object') {
-          flatten(val, path);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vera Design Tokens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Geist+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: 'Geist';
+        src: local('Geist');
+        font-weight: 100 900;
+      }
+
+      @font-face {
+        font-family: 'Vera Custom';
+        src: url('fonts/VeraCustom.ttf') format('truetype');
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #ffffff;
+        --surface: #fafaf9;
+        --surface2: #f5f5f3;
+        --border: #e7e5e4;
+        --text: #1c1917;
+        --text2: #57534e;
+        --text3: #78716c;
+        --accent: #d85959;
+        --accent-light: #fef2f2;
+        --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+        --display: 'Cormorant Garamond', 'Georgia', serif;
+        --mono: 'Geist Mono', 'SF Mono', 'Consolas', monospace;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ── Navigation ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 48px;
+      }
+
+      nav .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        height: 56px;
+        overflow-x: auto;
+      }
+
+      nav .brand {
+        font-family: 'Vera Custom', sans-serif;
+        font-size: 26px;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        color: var(--accent);
+        white-space: nowrap;
+        flex-shrink: 0;
+        text-transform: lowercase;
+      }
+
+      nav a {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text3);
+        text-decoration: none;
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+        transition: color 0.15s ease;
+        padding: 4px 0;
+      }
+      nav a:hover {
+        color: var(--text);
+      }
+
+      /* ── Header ── */
+      .hero {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 80px 48px 64px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero h1 {
+        font-family: var(--display);
+        font-size: 56px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        color: var(--text);
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .hero p {
+        margin-top: 16px;
+        font-size: 17px;
+        color: var(--text2);
+        max-width: 560px;
+        line-height: 1.65;
+      }
+
+      /* ── Sections ── */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+
+      section {
+        padding: 72px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      section:last-child {
+        border-bottom: none;
+      }
+
+      .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .section-title {
+        font-family: var(--display);
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+      }
+
+      .section-desc {
+        font-size: 15px;
+        color: var(--text2);
+        margin-bottom: 48px;
+        max-width: 640px;
+      }
+
+      .subsection {
+        margin-bottom: 48px;
+      }
+
+      .subsection:last-child {
+        margin-bottom: 0;
+      }
+
+      .subsection-title {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text3);
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .token-path {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+        letter-spacing: 0;
+      }
+
+      /* ── Color Swatches ── */
+      .swatch-strip {
+        display: flex;
+        gap: 2px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .swatch {
+        flex: 1;
+        min-width: 0;
+        aspect-ratio: 1;
+        min-height: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 8px;
+        position: relative;
+        transition: flex 0.2s ease;
+        cursor: default;
+      }
+
+      .swatch:hover {
+        flex: 2;
+      }
+
+      .swatch-info {
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .swatch:hover .swatch-info {
+        opacity: 1;
+      }
+
+      .swatch-hex {
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 400;
+      }
+
+      .swatch-name {
+        font-size: 10px;
+        font-weight: 500;
+      }
+
+      .swatch-desc {
+        font-size: 9px;
+        opacity: 0.8;
+        line-height: 1.3;
+      }
+
+      /* Semantic Colors */
+      .semantic-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+      }
+
+      .semantic-pair {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .semantic-pair-label {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 8px 12px;
+        background: var(--surface);
+        color: var(--text2);
+        letter-spacing: 0.02em;
+      }
+
+      .semantic-pair-swatches {
+        display: flex;
+      }
+
+      .semantic-swatch {
+        flex: 1;
+        height: 56px;
+        display: flex;
+        align-items: flex-end;
+        padding: 6px 10px;
+      }
+
+      .semantic-swatch span {
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+
+      /* ── Typography ── */
+      .type-scale-row {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 24px;
+        align-items: baseline;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .type-scale-row:last-child {
+        border-bottom: none;
+      }
+
+      .type-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .type-level {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .type-specs {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--text3);
+        line-height: 1.5;
+      }
+
+      .type-sample {
+        color: var(--text);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .font-family-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .font-card {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .font-card-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+      }
+
+      .font-card-sample {
+        font-size: 28px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      .font-card-stack {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--text3);
+        word-break: break-all;
+        line-height: 1.5;
+      }
+
+      .weight-row {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .weight-row:last-child {
+        border-bottom: none;
+      }
+
+      .weight-label {
+        font-size: 12px;
+        color: var(--text3);
+        width: 80px;
+        flex-shrink: 0;
+      }
+
+      .weight-value {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+        width: 40px;
+        flex-shrink: 0;
+      }
+
+      .weight-sample {
+        font-size: 20px;
+      }
+
+      /* ── Spacing ── */
+      .spacing-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 6px 0;
+      }
+
+      .spacing-label {
+        width: 80px;
+        flex-shrink: 0;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text3);
+        text-align: right;
+      }
+
+      .spacing-bar {
+        height: 20px;
+        background: var(--accent);
+        border-radius: 4px;
+        opacity: 0.8;
+        transition: opacity 0.15s;
+        min-width: 1px;
+      }
+
+      .spacing-row:hover .spacing-bar {
+        opacity: 1;
+      }
+
+      .spacing-px {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+        flex-shrink: 0;
+      }
+
+      /* ── Border Radius ── */
+      .radius-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: end;
+      }
+
+      .radius-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .radius-box {
+        width: 72px;
+        height: 72px;
+        background: var(--accent-light);
+        border: 2px solid var(--accent);
+      }
+
+      .radius-info {
+        text-align: center;
+      }
+
+      .radius-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .radius-value {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+      }
+
+      /* ── Shadows ── */
+      .shadow-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .shadow-card {
+        width: 140px;
+        height: 100px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+
+      .shadow-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .shadow-value {
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--text3);
+        text-align: center;
+        max-width: 120px;
+        line-height: 1.4;
+        word-break: break-word;
+      }
+
+      /* ── Tables ── */
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .data-table th {
+        text-align: left;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text3);
+        padding: 8px 16px 8px 0;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .data-table td {
+        padding: 10px 16px 10px 0;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+      }
+
+      .data-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .data-table .mono {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text2);
+      }
+
+      /* ── Breakpoints ── */
+      .breakpoint-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .bp-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .bp-label {
+        width: 48px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text3);
+        text-align: right;
+        flex-shrink: 0;
+      }
+
+      .bp-bar-wrap {
+        flex: 1;
+        height: 28px;
+        background: var(--surface);
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .bp-bar {
+        height: 100%;
+        background: var(--accent);
+        opacity: 0.15;
+        border-radius: 6px;
+        transition: opacity 0.15s;
+      }
+
+      .bp-row:hover .bp-bar {
+        opacity: 0.3;
+      }
+
+      .bp-px {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+        width: 56px;
+        flex-shrink: 0;
+      }
+
+      /* ── Grid Specs ── */
+      .grid-specs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .grid-card {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .grid-card-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        text-transform: capitalize;
+      }
+
+      .grid-card-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+        font-size: 13px;
+      }
+
+      .grid-card-row span:first-child {
+        color: var(--text3);
+      }
+      .grid-card-row span:last-child {
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+
+      /* ── Animation ── */
+      .anim-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+      }
+
+      .anim-card {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .anim-card-label {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .anim-card-value {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text3);
+      }
+
+      .anim-track {
+        height: 4px;
+        background: var(--surface2);
+        border-radius: 2px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .anim-dot {
+        position: absolute;
+        top: -4px;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: anim-slide 2s infinite;
+      }
+
+      @keyframes anim-slide {
+        0%,
+        100% {
+          left: 0;
+        }
+        50% {
+          left: calc(100% - 12px);
         }
       }
-    }
-    flatten(data, '');
-    table.appendChild(tbody);
-    sec.appendChild(table);
-    wrap.appendChild(sec);
-  }
 
-  return wrap;
-}
+      /* ── Components ── */
+      .comp-section {
+        margin-bottom: 40px;
+      }
 
-// ── BUILD PAGE ──
-const app = document.getElementById('app');
+      .comp-section:last-child {
+        margin-bottom: 0;
+      }
 
-app.appendChild(makeSection('colors', 'Foundations', 'Color Palettes',
-  'Every hue in the Vera palette — from brand primary to inclusive skin tones.',
-  renderColors()));
+      .comp-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        text-transform: capitalize;
+      }
 
-app.appendChild(makeSection('typography', 'Foundations', 'Typography',
-  'Type scale, font families, and weight tokens across mobile and desktop breakpoints.',
-  renderTypography()));
+      .button-demos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
 
-app.appendChild(makeSection('spacing', 'Foundations', 'Spacing Scale',
-  'A 4px base-unit scale from 0 to 128px for consistent spatial rhythm.',
-  renderSpacing()));
+      .btn-demo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent);
+        color: white;
+        font-family: var(--sans);
+        border: none;
+        cursor: default;
+        font-weight: 500;
+        position: relative;
+      }
 
-app.appendChild(makeSection('radius', 'Foundations', 'Border Radius',
-  'Corner radii from sharp to fully rounded.',
-  renderRadius()));
+      .btn-demo-label {
+        font-size: 11px;
+        color: var(--text3);
+        text-align: center;
+        margin-top: 6px;
+        font-family: var(--mono);
+      }
 
-app.appendChild(makeSection('shadows', 'Elevation', 'Shadows',
-  'Five elevation levels for depth and hierarchy.',
-  renderShadows()));
+      .avatar-demos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: end;
+      }
 
-app.appendChild(makeSection('zindex', 'Elevation', 'Z-Index',
-  'Stacking order for overlapping elements.',
-  renderZIndex()));
+      .avatar-demo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
 
-app.appendChild(makeSection('breakpoints', 'Layout', 'Breakpoints',
-  'Responsive breakpoints from mobile to ultrawide.',
-  renderBreakpoints()));
+      .avatar-circle {
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-light), var(--accent));
+        opacity: 0.8;
+      }
 
-app.appendChild(makeSection('grid', 'Layout', 'Grid System',
-  'Column count, gutter, and margin specs per viewport.',
-  renderGrid()));
+      .avatar-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--text3);
+        text-align: center;
+      }
 
-app.appendChild(makeSection('animation', 'Motion', 'Animation',
-  'Duration and easing tokens for consistent motion.',
-  renderAnimation()));
+      /* ── Responsive ── */
+      @media (max-width: 768px) {
+        nav {
+          padding: 0 24px;
+        }
+        .hero {
+          padding: 48px 24px 40px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .container {
+          padding: 0 24px;
+        }
+        section {
+          padding: 48px 0;
+        }
+        .type-scale-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .section-title {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <span class="brand">Vera</span>
+        <a href="#colors">Colors</a>
+        <a href="#typography">Typography</a>
+        <a href="#spacing">Spacing</a>
+        <a href="#radius">Radius</a>
+        <a href="#shadows">Shadows</a>
+        <a href="#zindex">Z-Index</a>
+        <a href="#breakpoints">Breakpoints</a>
+        <a href="#grid">Grid</a>
+        <a href="#animation">Animation</a>
+        <a href="#components">Components</a>
+      </div>
+    </nav>
 
-app.appendChild(makeSection('components', 'Components', 'Component Tokens',
-  'Size, spacing, and radius specs for core UI components.',
-  renderComponents()));
-</script>
-</body>
+    <div class="hero">
+      <h1>Design <em>Tokens</em></h1>
+      <p>
+        The complete visual language for Vera Beauty. Every color, measurement,
+        and motion value that shapes the experience across mobile, web, and
+        Figma.
+      </p>
+    </div>
+
+    <div class="container">
+      <div id="app"></div>
+    </div>
+
+    <script>
+      const TOKENS = {
+        $schema: 'https://design-tokens.github.io/community-group/format/',
+        vera: {
+          color: {
+            primary: {
+              50: {
+                $value: '#FEF2F2',
+                $type: 'color',
+                $description: 'Tinted backgrounds, hover states',
+              },
+              100: {
+                $value: '#FDE3E3',
+                $type: 'color',
+                $description: 'Light fills, selected states',
+              },
+              200: {
+                $value: '#FCCBCB',
+                $type: 'color',
+                $description: 'Borders, dividers',
+              },
+              300: {
+                $value: '#F9A8A8',
+                $type: 'color',
+                $description: 'Muted accents',
+              },
+              400: {
+                $value: '#F07878',
+                $type: 'color',
+                $description: 'Hover state on primary',
+              },
+              500: {
+                $value: '#D85959',
+                $type: 'color',
+                $description: 'Primary brand — buttons, links, key actions',
+              },
+              600: {
+                $value: '#C44242',
+                $type: 'color',
+                $description: 'Active/pressed state',
+              },
+              700: {
+                $value: '#A33434',
+                $type: 'color',
+                $description: 'High-emphasis text on light bg',
+              },
+              800: {
+                $value: '#872D2D',
+                $type: 'color',
+                $description: 'Dark accents',
+              },
+              900: {
+                $value: '#722B2B',
+                $type: 'color',
+                $description: 'Deepest accent',
+              },
+              950: {
+                $value: '#3E1212',
+                $type: 'color',
+                $description: 'Near-black brand tint',
+              },
+            },
+            neutral: {
+              0: {
+                $value: '#FFFFFF',
+                $type: 'color',
+                $description: 'Page backgrounds, cards',
+              },
+              50: {
+                $value: '#FAFAF9',
+                $type: 'color',
+                $description: 'Subtle backgrounds',
+              },
+              100: {
+                $value: '#F5F5F3',
+                $type: 'color',
+                $description: 'Section backgrounds',
+              },
+              200: {
+                $value: '#E7E5E4',
+                $type: 'color',
+                $description: 'Borders, dividers',
+              },
+              300: {
+                $value: '#D6D3D1',
+                $type: 'color',
+                $description: 'Disabled backgrounds',
+              },
+              400: {
+                $value: '#A8A29E',
+                $type: 'color',
+                $description: 'Placeholder text',
+              },
+              500: {
+                $value: '#78716C',
+                $type: 'color',
+                $description: 'Secondary text',
+              },
+              600: {
+                $value: '#57534E',
+                $type: 'color',
+                $description: 'Body text (dark bg)',
+              },
+              700: {
+                $value: '#44403C',
+                $type: 'color',
+                $description: 'Primary text (dark bg)',
+              },
+              800: {
+                $value: '#292524',
+                $type: 'color',
+                $description: 'Surface (dark mode)',
+              },
+              900: {
+                $value: '#1C1917',
+                $type: 'color',
+                $description: 'Background (dark mode)',
+              },
+              950: {
+                $value: '#0C0A09',
+                $type: 'color',
+                $description: 'Deepest dark',
+              },
+            },
+            success: {
+              50: {$value: '#F0FDF4', $type: 'color'},
+              100: {$value: '#DCFCE7', $type: 'color'},
+              500: {$value: '#16A34A', $type: 'color'},
+              700: {$value: '#15803D', $type: 'color'},
+              900: {$value: '#14532D', $type: 'color'},
+            },
+            warning: {
+              50: {$value: '#FEFCE8', $type: 'color'},
+              100: {$value: '#FEF9C3', $type: 'color'},
+              500: {$value: '#CA8A04', $type: 'color'},
+              700: {$value: '#A16207', $type: 'color'},
+              900: {$value: '#713F12', $type: 'color'},
+            },
+            error: {
+              50: {$value: '#FEF2F2', $type: 'color'},
+              100: {$value: '#FEE2E2', $type: 'color'},
+              500: {$value: '#EF4444', $type: 'color'},
+              700: {$value: '#B91C1C', $type: 'color'},
+              900: {$value: '#7F1D1D', $type: 'color'},
+            },
+            info: {
+              50: {$value: '#EFF6FF', $type: 'color'},
+              100: {$value: '#DBEAFE', $type: 'color'},
+              500: {$value: '#3B82F6', $type: 'color'},
+              700: {$value: '#1D4ED8', $type: 'color'},
+              900: {$value: '#1E3A8A', $type: 'color'},
+            },
+            mst: {
+              10: {$value: '#292420', $type: 'color'},
+              $description:
+                'Monk Skin Tone Scale — 10-point inclusive skin tone representation',
+              '01': {$value: '#F6EDE4', $type: 'color'},
+              '02': {$value: '#F3E7DB', $type: 'color'},
+              '03': {$value: '#F7EAD0', $type: 'color'},
+              '04': {$value: '#EADABA', $type: 'color'},
+              '05': {$value: '#D7BD96', $type: 'color'},
+              '06': {$value: '#A07E56', $type: 'color'},
+              '07': {$value: '#825C43', $type: 'color'},
+              '08': {$value: '#604134', $type: 'color'},
+              '09': {$value: '#3A312A', $type: 'color'},
+            },
+            semantic: {
+              $description: 'Mapped semantic colors for light and dark mode',
+              background: {
+                light: {$value: '#FFFFFF', $type: 'color'},
+                dark: {$value: '#1C1917', $type: 'color'},
+              },
+              surface1: {
+                light: {$value: '#FAFAF9', $type: 'color'},
+                dark: {$value: '#292524', $type: 'color'},
+              },
+              surface2: {
+                light: {$value: '#F5F5F3', $type: 'color'},
+                dark: {$value: '#44403C', $type: 'color'},
+              },
+              surface3: {
+                light: {$value: '#E7E5E4', $type: 'color'},
+                dark: {$value: '#57534E', $type: 'color'},
+              },
+              textPrimary: {
+                light: {$value: '#1C1917', $type: 'color'},
+                dark: {$value: '#FAFAF9', $type: 'color'},
+              },
+              textSecondary: {
+                light: {$value: '#57534E', $type: 'color'},
+                dark: {$value: '#D6D3D1', $type: 'color'},
+              },
+              textTertiary: {
+                light: {$value: '#78716C', $type: 'color'},
+                dark: {$value: '#A8A29E', $type: 'color'},
+              },
+              textDisabled: {
+                light: {$value: '#A8A29E', $type: 'color'},
+                dark: {$value: '#78716C', $type: 'color'},
+              },
+              border: {
+                light: {$value: '#E7E5E4', $type: 'color'},
+                dark: {$value: '#44403C', $type: 'color'},
+              },
+              brandAccent: {
+                light: {$value: '#D85959', $type: 'color'},
+                dark: {$value: '#F07878', $type: 'color'},
+              },
+              link: {
+                light: {$value: '#D85959', $type: 'color'},
+                dark: {$value: '#F9A8A8', $type: 'color'},
+              },
+            },
+          },
+          typography: {
+            fontFamily: {
+              sans: {
+                $value:
+                  "'Geist', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                $type: 'fontFamily',
+              },
+              display: {
+                $value: "'Cormorant Garamond', 'Georgia', serif",
+                $type: 'fontFamily',
+              },
+              vera: {
+                $value: "'Vera Custom', sans-serif",
+                $type: 'fontFamily',
+                $description: 'Proprietary wordmark font — logo use only',
+              },
+              mono: {
+                $value: "'Geist Mono', 'SF Mono', 'Consolas', monospace",
+                $type: 'fontFamily',
+              },
+            },
+            fontWeight: {
+              thin: {$value: 100, $type: 'fontWeight'},
+              extralight: {$value: 200, $type: 'fontWeight'},
+              light: {$value: 300, $type: 'fontWeight'},
+              regular: {$value: 400, $type: 'fontWeight'},
+              medium: {$value: 500, $type: 'fontWeight'},
+              semibold: {$value: 600, $type: 'fontWeight'},
+              bold: {$value: 700, $type: 'fontWeight'},
+              extrabold: {$value: 800, $type: 'fontWeight'},
+              black: {$value: 900, $type: 'fontWeight'},
+            },
+            scale: {
+              mobile: {
+                display: {
+                  fontSize: {$value: '34px', $type: 'dimension'},
+                  lineHeight: {$value: '40px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.4px', $type: 'dimension'},
+                  fontWeight: {$value: 300, $type: 'fontWeight'},
+                },
+                headline: {
+                  fontSize: {$value: '28px', $type: 'dimension'},
+                  lineHeight: {$value: '34px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.3px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                title1: {
+                  fontSize: {$value: '22px', $type: 'dimension'},
+                  lineHeight: {$value: '28px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.2px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                title2: {
+                  fontSize: {$value: '20px', $type: 'dimension'},
+                  lineHeight: {$value: '26px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.1px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                title3: {
+                  fontSize: {$value: '17px', $type: 'dimension'},
+                  lineHeight: {$value: '24px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                body: {
+                  fontSize: {$value: '17px', $type: 'dimension'},
+                  lineHeight: {$value: '26px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                callout: {
+                  fontSize: {$value: '16px', $type: 'dimension'},
+                  lineHeight: {$value: '22px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                subheadline: {
+                  fontSize: {$value: '15px', $type: 'dimension'},
+                  lineHeight: {$value: '22px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 500, $type: 'fontWeight'},
+                },
+                footnote: {
+                  fontSize: {$value: '13px', $type: 'dimension'},
+                  lineHeight: {$value: '18px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                caption1: {
+                  fontSize: {$value: '12px', $type: 'dimension'},
+                  lineHeight: {$value: '16px', $type: 'dimension'},
+                  letterSpacing: {$value: '0.1px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                caption2: {
+                  fontSize: {$value: '11px', $type: 'dimension'},
+                  lineHeight: {$value: '14px', $type: 'dimension'},
+                  letterSpacing: {$value: '0.2px', $type: 'dimension'},
+                  fontWeight: {$value: 500, $type: 'fontWeight'},
+                },
+              },
+              desktop: {
+                display: {
+                  fontSize: {$value: '48px', $type: 'dimension'},
+                  lineHeight: {$value: '56px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.6px', $type: 'dimension'},
+                  fontWeight: {$value: 300, $type: 'fontWeight'},
+                },
+                headline: {
+                  fontSize: {$value: '36px', $type: 'dimension'},
+                  lineHeight: {$value: '44px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.4px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                title1: {
+                  fontSize: {$value: '28px', $type: 'dimension'},
+                  lineHeight: {$value: '36px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.3px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                title2: {
+                  fontSize: {$value: '24px', $type: 'dimension'},
+                  lineHeight: {$value: '30px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.2px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                title3: {
+                  fontSize: {$value: '20px', $type: 'dimension'},
+                  lineHeight: {$value: '26px', $type: 'dimension'},
+                  letterSpacing: {$value: '-0.1px', $type: 'dimension'},
+                  fontWeight: {$value: 600, $type: 'fontWeight'},
+                },
+                body: {
+                  fontSize: {$value: '17px', $type: 'dimension'},
+                  lineHeight: {$value: '28px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                callout: {
+                  fontSize: {$value: '16px', $type: 'dimension'},
+                  lineHeight: {$value: '24px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                subheadline: {
+                  fontSize: {$value: '15px', $type: 'dimension'},
+                  lineHeight: {$value: '22px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 500, $type: 'fontWeight'},
+                },
+                footnote: {
+                  fontSize: {$value: '13px', $type: 'dimension'},
+                  lineHeight: {$value: '18px', $type: 'dimension'},
+                  letterSpacing: {$value: '0px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                caption1: {
+                  fontSize: {$value: '12px', $type: 'dimension'},
+                  lineHeight: {$value: '16px', $type: 'dimension'},
+                  letterSpacing: {$value: '0.1px', $type: 'dimension'},
+                  fontWeight: {$value: 400, $type: 'fontWeight'},
+                },
+                caption2: {
+                  fontSize: {$value: '11px', $type: 'dimension'},
+                  lineHeight: {$value: '14px', $type: 'dimension'},
+                  letterSpacing: {$value: '0.2px', $type: 'dimension'},
+                  fontWeight: {$value: 500, $type: 'fontWeight'},
+                },
+              },
+            },
+          },
+          spacing: {
+            0: {$value: '0px', $type: 'dimension'},
+            1: {$value: '4px', $type: 'dimension'},
+            2: {$value: '8px', $type: 'dimension'},
+            3: {$value: '12px', $type: 'dimension'},
+            4: {$value: '16px', $type: 'dimension'},
+            5: {$value: '20px', $type: 'dimension'},
+            6: {$value: '24px', $type: 'dimension'},
+            8: {$value: '32px', $type: 'dimension'},
+            10: {$value: '40px', $type: 'dimension'},
+            12: {$value: '48px', $type: 'dimension'},
+            16: {$value: '64px', $type: 'dimension'},
+            20: {$value: '80px', $type: 'dimension'},
+            24: {$value: '96px', $type: 'dimension'},
+            32: {$value: '128px', $type: 'dimension'},
+            0.5: {$value: '2px', $type: 'dimension'},
+            1.5: {$value: '6px', $type: 'dimension'},
+          },
+          borderRadius: {
+            none: {$value: '0px', $type: 'dimension'},
+            sm: {$value: '4px', $type: 'dimension'},
+            md: {$value: '8px', $type: 'dimension'},
+            lg: {$value: '12px', $type: 'dimension'},
+            xl: {$value: '16px', $type: 'dimension'},
+            '2xl': {$value: '24px', $type: 'dimension'},
+            full: {$value: '9999px', $type: 'dimension'},
+          },
+          shadow: {
+            none: {$value: 'none', $type: 'shadow'},
+            xs: {$value: '0 1px 2px rgba(28, 25, 23, 0.05)', $type: 'shadow'},
+            sm: {
+              $value:
+                '0 1px 3px rgba(28, 25, 23, 0.08), 0 1px 2px rgba(28, 25, 23, 0.04)',
+              $type: 'shadow',
+            },
+            md: {
+              $value:
+                '0 4px 6px rgba(28, 25, 23, 0.07), 0 2px 4px rgba(28, 25, 23, 0.04)',
+              $type: 'shadow',
+            },
+            lg: {
+              $value:
+                '0 10px 15px rgba(28, 25, 23, 0.08), 0 4px 6px rgba(28, 25, 23, 0.04)',
+              $type: 'shadow',
+            },
+            xl: {
+              $value:
+                '0 20px 25px rgba(28, 25, 23, 0.10), 0 8px 10px rgba(28, 25, 23, 0.05)',
+              $type: 'shadow',
+            },
+          },
+          zIndex: {
+            base: {$value: 0, $type: 'number'},
+            raised: {$value: 10, $type: 'number'},
+            dropdown: {$value: 100, $type: 'number'},
+            sticky: {$value: 200, $type: 'number'},
+            overlay: {$value: 300, $type: 'number'},
+            modal: {$value: 400, $type: 'number'},
+            toast: {$value: 500, $type: 'number'},
+            tooltip: {$value: 600, $type: 'number'},
+            maximum: {$value: 9999, $type: 'number'},
+          },
+          breakpoint: {
+            xs: {$value: '0px', $type: 'dimension'},
+            sm: {$value: '375px', $type: 'dimension'},
+            md: {$value: '768px', $type: 'dimension'},
+            lg: {$value: '1024px', $type: 'dimension'},
+            xl: {$value: '1280px', $type: 'dimension'},
+            '2xl': {$value: '1440px', $type: 'dimension'},
+            '3xl': {$value: '1920px', $type: 'dimension'},
+          },
+          grid: {
+            mobile: {
+              columns: {$value: 4, $type: 'number'},
+              gutter: {$value: '16px', $type: 'dimension'},
+              margin: {$value: '16px', $type: 'dimension'},
+            },
+            tablet: {
+              columns: {$value: 8, $type: 'number'},
+              gutter: {$value: '20px', $type: 'dimension'},
+              margin: {$value: '32px', $type: 'dimension'},
+            },
+            desktop: {
+              columns: {$value: 12, $type: 'number'},
+              gutter: {$value: '24px', $type: 'dimension'},
+              margin: {$value: '80px', $type: 'dimension'},
+              maxContentWidth: {$value: '1280px', $type: 'dimension'},
+            },
+          },
+          animation: {
+            duration: {
+              fast: {$value: '150ms', $type: 'duration'},
+              normal: {$value: '200ms', $type: 'duration'},
+              slow: {$value: '300ms', $type: 'duration'},
+              slower: {$value: '400ms', $type: 'duration'},
+            },
+            easing: {
+              default: {$value: 'ease-in-out', $type: 'cubicBezier'},
+              in: {$value: 'ease-in', $type: 'cubicBezier'},
+              out: {$value: 'ease-out', $type: 'cubicBezier'},
+            },
+          },
+          component: {
+            button: {
+              small: {
+                height: {$value: '32px', $type: 'dimension'},
+                paddingX: {$value: '12px', $type: 'dimension'},
+                fontSize: {$value: '13px', $type: 'dimension'},
+                iconSize: {$value: '14px', $type: 'dimension'},
+                borderRadius: {$value: '9999px', $type: 'dimension'},
+              },
+              medium: {
+                height: {$value: '40px', $type: 'dimension'},
+                paddingX: {$value: '16px', $type: 'dimension'},
+                fontSize: {$value: '16px', $type: 'dimension'},
+                iconSize: {$value: '16px', $type: 'dimension'},
+                borderRadius: {$value: '9999px', $type: 'dimension'},
+              },
+              large: {
+                height: {$value: '48px', $type: 'dimension'},
+                paddingX: {$value: '20px', $type: 'dimension'},
+                fontSize: {$value: '17px', $type: 'dimension'},
+                iconSize: {$value: '18px', $type: 'dimension'},
+                borderRadius: {$value: '9999px', $type: 'dimension'},
+              },
+              xlarge: {
+                height: {$value: '56px', $type: 'dimension'},
+                paddingX: {$value: '24px', $type: 'dimension'},
+                fontSize: {$value: '17px', $type: 'dimension'},
+                iconSize: {$value: '20px', $type: 'dimension'},
+                borderRadius: {$value: '9999px', $type: 'dimension'},
+              },
+            },
+            input: {
+              height: {
+                mobile: {$value: '44px', $type: 'dimension'},
+                desktop: {$value: '40px', $type: 'dimension'},
+              },
+              paddingX: {$value: '12px', $type: 'dimension'},
+              paddingY: {$value: '10px', $type: 'dimension'},
+              borderRadius: {$value: '9999px', $type: 'dimension'},
+              borderWidth: {$value: '1px', $type: 'dimension'},
+              focusBorderWidth: {$value: '2px', $type: 'dimension'},
+            },
+            card: {
+              padding: {
+                mobile: {$value: '16px', $type: 'dimension'},
+                tablet: {$value: '20px', $type: 'dimension'},
+                desktop: {$value: '24px', $type: 'dimension'},
+              },
+              borderRadius: {$value: '12px', $type: 'dimension'},
+              gap: {
+                mobile: {$value: '16px', $type: 'dimension'},
+                desktop: {$value: '24px', $type: 'dimension'},
+              },
+            },
+            avatar: {
+              xsmall: {$value: '24px', $type: 'dimension'},
+              small: {$value: '32px', $type: 'dimension'},
+              medium: {$value: '40px', $type: 'dimension'},
+              large: {$value: '56px', $type: 'dimension'},
+              xlarge: {$value: '80px', $type: 'dimension'},
+              xxlarge: {$value: '120px', $type: 'dimension'},
+            },
+            header: {
+              height: {
+                desktop: {$value: '64px', $type: 'dimension'},
+                mobile: {$value: '56px', $type: 'dimension'},
+                compact: {$value: '48px', $type: 'dimension'},
+              },
+            },
+            tabBar: {
+              height: {
+                $value: '49px',
+                $type: 'dimension',
+                $description: 'Excludes safe area inset',
+              },
+              iconSize: {$value: '24px', $type: 'dimension'},
+            },
+            sidebar: {
+              widthExpanded: {$value: '280px', $type: 'dimension'},
+              widthCollapsed: {$value: '64px', $type: 'dimension'},
+            },
+            modal: {
+              small: {$value: '400px', $type: 'dimension'},
+              medium: {$value: '560px', $type: 'dimension'},
+              large: {$value: '720px', $type: 'dimension'},
+              borderRadius: {$value: '12px', $type: 'dimension'},
+              backdropOpacity: {$value: 0.5, $type: 'number'},
+            },
+            toast: {
+              minWidth: {$value: '240px', $type: 'dimension'},
+              maxWidth: {$value: '480px', $type: 'dimension'},
+              autoDismiss: {$value: '4000ms', $type: 'duration'},
+              autoDismissWithAction: {$value: '6000ms', $type: 'duration'},
+              maxStack: {$value: 3, $type: 'number'},
+            },
+            focusRing: {
+              width: {$value: '2px', $type: 'dimension'},
+              offset: {$value: '2px', $type: 'dimension'},
+              color: {
+                light: {$value: '#D85959', $type: 'color'},
+                dark: {$value: '#F07878', $type: 'color'},
+              },
+            },
+          },
+        },
+      };
+
+      const T = TOKENS.vera;
+
+      // Helpers
+      const v = (token) => token?.$value;
+      const isToken = (obj) =>
+        obj && typeof obj === 'object' && '$value' in obj;
+      const textColor = (hex) => {
+        const r = parseInt(hex.slice(1, 3), 16),
+          g = parseInt(hex.slice(3, 5), 16),
+          b = parseInt(hex.slice(5, 7), 16);
+        return r * 0.299 + g * 0.587 + b * 0.114 > 150 ? '#1C1917' : '#FAFAF9';
+      };
+      const px = (val) => parseInt(String(val));
+      const h = (tag, attrs = {}, ...children) => {
+        const el = document.createElement(tag);
+        for (const [k, val] of Object.entries(attrs)) {
+          if (k === 'style' && typeof val === 'object')
+            Object.assign(el.style, val);
+          else if (k.startsWith('on'))
+            el.addEventListener(k.slice(2).toLowerCase(), val);
+          else el.setAttribute(k, val);
+        }
+        for (const c of children.flat()) {
+          if (typeof c === 'string' || typeof c === 'number')
+            el.appendChild(document.createTextNode(c));
+          else if (c) el.appendChild(c);
+        }
+        return el;
+      };
+
+      function makeSection(id, label, title, desc, content) {
+        const s = h(
+          'section',
+          {id},
+          h('div', {class: 'section-label'}, label),
+          h('div', {class: 'section-title'}, title),
+          h('div', {class: 'section-desc'}, desc),
+          content
+        );
+        return s;
+      }
+
+      // ── COLORS ──
+      function renderColors() {
+        const wrap = h('div');
+        const colorGroups = [
+          'primary',
+          'neutral',
+          'success',
+          'warning',
+          'error',
+          'info',
+          'mst',
+        ];
+
+        for (const group of colorGroups) {
+          const data = T.color[group];
+          const tokens = Object.entries(data).filter(([k, v]) => isToken(v));
+          const sub = h('div', {class: 'subsection'});
+          const desc = data.$description ? ` — ${data.$description}` : '';
+          sub.appendChild(
+            h('div', {class: 'subsection-title'}, `${group}${desc}`)
+          );
+          const strip = h('div', {class: 'swatch-strip'});
+          for (const [key, token] of tokens) {
+            const hex = v(token);
+            const tc = textColor(hex);
+            const swatch = h(
+              'div',
+              {class: 'swatch', style: {background: hex}},
+              h(
+                'div',
+                {class: 'swatch-info', style: {color: tc}},
+                h('div', {class: 'swatch-hex'}, hex),
+                h('div', {class: 'swatch-name'}, `color.${group}.${key}`),
+                token.$description
+                  ? h('div', {class: 'swatch-desc'}, token.$description)
+                  : null
+              )
+            );
+            strip.appendChild(swatch);
+          }
+          sub.appendChild(strip);
+          wrap.appendChild(sub);
+        }
+
+        // Semantic
+        const sem = T.color.semantic;
+        const semSub = h('div', {class: 'subsection'});
+        semSub.appendChild(
+          h(
+            'div',
+            {class: 'subsection-title'},
+            'Semantic — Light / Dark mode pairs'
+          )
+        );
+        const semGrid = h('div', {class: 'semantic-grid'});
+        for (const [name, pair] of Object.entries(sem)) {
+          if (name.startsWith('$')) continue;
+          const lightHex = v(pair.light);
+          const darkHex = v(pair.dark);
+          const card = h(
+            'div',
+            {class: 'semantic-pair'},
+            h('div', {class: 'semantic-pair-label'}, name),
+            h(
+              'div',
+              {class: 'semantic-pair-swatches'},
+              h(
+                'div',
+                {class: 'semantic-swatch', style: {background: lightHex}},
+                h('span', {style: {color: textColor(lightHex)}}, lightHex)
+              ),
+              h(
+                'div',
+                {class: 'semantic-swatch', style: {background: darkHex}},
+                h('span', {style: {color: textColor(darkHex)}}, darkHex)
+              )
+            )
+          );
+          semGrid.appendChild(card);
+        }
+        semSub.appendChild(semGrid);
+        wrap.appendChild(semSub);
+        return wrap;
+      }
+
+      // ── TYPOGRAPHY ──
+      function renderTypography() {
+        const wrap = h('div');
+
+        // Font families
+        const ffSub = h('div', {class: 'subsection'});
+        ffSub.appendChild(
+          h('div', {class: 'subsection-title'}, 'Font Families')
+        );
+        const ffGrid = h('div', {class: 'font-family-grid'});
+        for (const [name, token] of Object.entries(T.typography.fontFamily)) {
+          const stack = v(token);
+          const card = h(
+            'div',
+            {class: 'font-card'},
+            h('div', {class: 'font-card-label'}, name),
+            h(
+              'div',
+              {class: 'font-card-sample', style: {fontFamily: stack}},
+              'Age beautifully'
+            ),
+            h('div', {class: 'font-card-stack'}, stack),
+            token.$description
+              ? h(
+                  'div',
+                  {
+                    style: {
+                      fontSize: '11px',
+                      color: '#78716C',
+                      marginTop: '6px',
+                    },
+                  },
+                  token.$description
+                )
+              : null
+          );
+          ffGrid.appendChild(card);
+        }
+        ffSub.appendChild(ffGrid);
+        wrap.appendChild(ffSub);
+
+        // Font weights
+        const fwSub = h('div', {class: 'subsection'});
+        fwSub.appendChild(
+          h('div', {class: 'subsection-title'}, 'Font Weights')
+        );
+        for (const [name, token] of Object.entries(T.typography.fontWeight)) {
+          fwSub.appendChild(
+            h(
+              'div',
+              {class: 'weight-row'},
+              h('span', {class: 'weight-label'}, name),
+              h('span', {class: 'weight-value'}, String(v(token))),
+              h(
+                'span',
+                {class: 'weight-sample', style: {fontWeight: v(token)}},
+                'Vera Beauty'
+              )
+            )
+          );
+        }
+        wrap.appendChild(fwSub);
+
+        // Type scales
+        for (const platform of ['desktop', 'mobile']) {
+          const scale = T.typography.scale[platform];
+          const sub = h('div', {class: 'subsection'});
+          sub.appendChild(
+            h('div', {class: 'subsection-title'}, `Type Scale — ${platform}`)
+          );
+          for (const [level, props] of Object.entries(scale)) {
+            const fs = v(props.fontSize);
+            const lh = v(props.lineHeight);
+            const ls = v(props.letterSpacing);
+            const fw = v(props.fontWeight);
+            const row = h(
+              'div',
+              {class: 'type-scale-row'},
+              h(
+                'div',
+                {class: 'type-meta'},
+                h('div', {class: 'type-level'}, level),
+                h(
+                  'div',
+                  {class: 'type-specs'},
+                  `${fs} / ${lh}\n${ls} ls · ${fw} wt`
+                )
+              ),
+              h(
+                'div',
+                {
+                  class: 'type-sample',
+                  style: {
+                    fontSize: fs,
+                    lineHeight: lh,
+                    letterSpacing: ls,
+                    fontWeight: fw,
+                  },
+                },
+                'Age beautifully, backed by science'
+              )
+            );
+            sub.appendChild(row);
+          }
+          wrap.appendChild(sub);
+        }
+
+        return wrap;
+      }
+
+      // ── SPACING ──
+      function renderSpacing() {
+        const wrap = h('div');
+        const maxPx = 128;
+        for (const [key, token] of Object.entries(T.spacing)) {
+          const pxVal = px(v(token));
+          const pct = Math.max((pxVal / maxPx) * 100, 0.5);
+          wrap.appendChild(
+            h(
+              'div',
+              {class: 'spacing-row'},
+              h('div', {class: 'spacing-label'}, `spacing.${key}`),
+              h('div', {class: 'spacing-bar', style: {width: pct + '%'}}),
+              h('div', {class: 'spacing-px'}, v(token))
+            )
+          );
+        }
+        return wrap;
+      }
+
+      // ── BORDER RADIUS ──
+      function renderRadius() {
+        const grid = h('div', {class: 'radius-grid'});
+        for (const [key, token] of Object.entries(T.borderRadius)) {
+          const val = v(token);
+          grid.appendChild(
+            h(
+              'div',
+              {class: 'radius-item'},
+              h('div', {class: 'radius-box', style: {borderRadius: val}}),
+              h(
+                'div',
+                {class: 'radius-info'},
+                h('div', {class: 'radius-name'}, key),
+                h('div', {class: 'radius-value'}, val)
+              )
+            )
+          );
+        }
+        return grid;
+      }
+
+      // ── SHADOWS ──
+      function renderShadows() {
+        const grid = h('div', {class: 'shadow-grid'});
+        for (const [key, token] of Object.entries(T.shadow)) {
+          const val = v(token);
+          grid.appendChild(
+            h(
+              'div',
+              {
+                class: 'shadow-card',
+                style: {
+                  boxShadow: val === 'none' ? 'none' : val,
+                  border: val === 'none' ? '1px solid #E7E5E4' : 'none',
+                },
+              },
+              h('div', {class: 'shadow-name'}, key),
+              h(
+                'div',
+                {class: 'shadow-value'},
+                val === 'none'
+                  ? 'none'
+                  : val.length > 40
+                  ? val.slice(0, 40) + '...'
+                  : val
+              )
+            )
+          );
+        }
+        return grid;
+      }
+
+      // ── Z-INDEX ──
+      function renderZIndex() {
+        const table = h(
+          'table',
+          {class: 'data-table'},
+          h(
+            'thead',
+            {},
+            h(
+              'tr',
+              {},
+              h('th', {}, 'Token'),
+              h('th', {}, 'Value'),
+              h('th', {}, 'Visual')
+            )
+          )
+        );
+        const tbody = h('tbody');
+        const maxZ = 9999;
+        for (const [key, token] of Object.entries(T.zIndex)) {
+          const val = v(token);
+          const pct = val === 9999 ? 100 : (val / 600) * 80;
+          tbody.appendChild(
+            h(
+              'tr',
+              {},
+              h('td', {class: 'mono'}, `zIndex.${key}`),
+              h('td', {class: 'mono'}, String(val)),
+              h(
+                'td',
+                {},
+                h('div', {
+                  style: {
+                    width: pct + '%',
+                    height: '8px',
+                    background: '#D85959',
+                    borderRadius: '4px',
+                    opacity: '0.6',
+                    minWidth: '2px',
+                  },
+                })
+              )
+            )
+          );
+        }
+        table.appendChild(tbody);
+        return table;
+      }
+
+      // ── BREAKPOINTS ──
+      function renderBreakpoints() {
+        const wrap = h('div', {class: 'breakpoint-bars'});
+        const maxBp = 1920;
+        for (const [key, token] of Object.entries(T.breakpoint)) {
+          const pxVal = px(v(token));
+          const pct = Math.max((pxVal / maxBp) * 100, 0.5);
+          wrap.appendChild(
+            h(
+              'div',
+              {class: 'bp-row'},
+              h('div', {class: 'bp-label'}, key),
+              h(
+                'div',
+                {class: 'bp-bar-wrap'},
+                h('div', {class: 'bp-bar', style: {width: pct + '%'}})
+              ),
+              h('div', {class: 'bp-px'}, v(token))
+            )
+          );
+        }
+        return wrap;
+      }
+
+      // ── GRID ──
+      function renderGrid() {
+        const wrap = h('div', {class: 'grid-specs'});
+        for (const [platform, props] of Object.entries(T.grid)) {
+          const card = h(
+            'div',
+            {class: 'grid-card'},
+            h('div', {class: 'grid-card-title'}, platform)
+          );
+          for (const [prop, token] of Object.entries(props)) {
+            if (!isToken(token)) continue;
+            const label = prop
+              .replace(/([a-z])([A-Z])/g, '$1 $2')
+              .toLowerCase();
+            card.appendChild(
+              h(
+                'div',
+                {class: 'grid-card-row'},
+                h('span', {}, label),
+                h('span', {}, String(v(token)))
+              )
+            );
+          }
+          wrap.appendChild(card);
+        }
+        return wrap;
+      }
+
+      // ── ANIMATION ──
+      function renderAnimation() {
+        const wrap = h('div');
+
+        // Durations
+        const durSub = h('div', {class: 'subsection'});
+        durSub.appendChild(h('div', {class: 'subsection-title'}, 'Duration'));
+        const durGrid = h('div', {class: 'anim-grid'});
+        for (const [key, token] of Object.entries(T.animation.duration)) {
+          const ms = px(v(token));
+          const card = h(
+            'div',
+            {class: 'anim-card'},
+            h('div', {class: 'anim-card-label'}, key),
+            h('div', {class: 'anim-card-value'}, v(token)),
+            h(
+              'div',
+              {class: 'anim-track'},
+              h('div', {
+                class: 'anim-dot',
+                style: {
+                  animationDuration: ms * 2 + 1000 + 'ms',
+                  animationTimingFunction: 'ease-in-out',
+                },
+              })
+            )
+          );
+          durGrid.appendChild(card);
+        }
+        durSub.appendChild(durGrid);
+        wrap.appendChild(durSub);
+
+        // Easings
+        const easeSub = h('div', {class: 'subsection'});
+        easeSub.appendChild(h('div', {class: 'subsection-title'}, 'Easing'));
+        const easeGrid = h('div', {class: 'anim-grid'});
+        for (const [key, token] of Object.entries(T.animation.easing)) {
+          const card = h(
+            'div',
+            {class: 'anim-card'},
+            h('div', {class: 'anim-card-label'}, key),
+            h('div', {class: 'anim-card-value'}, v(token)),
+            h(
+              'div',
+              {class: 'anim-track'},
+              h('div', {
+                class: 'anim-dot',
+                style: {animationTimingFunction: v(token)},
+              })
+            )
+          );
+          easeGrid.appendChild(card);
+        }
+        easeSub.appendChild(easeGrid);
+        wrap.appendChild(easeSub);
+
+        return wrap;
+      }
+
+      // ── COMPONENTS ──
+      function renderComponents() {
+        const wrap = h('div');
+
+        // Buttons
+        const btnSec = h('div', {class: 'comp-section'});
+        btnSec.appendChild(
+          h('div', {class: 'subsection-title'}, 'Button Sizes')
+        );
+        const btnRow = h('div', {class: 'button-demos'});
+        for (const [size, props] of Object.entries(T.component.button)) {
+          const col = h('div', {
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            },
+          });
+          col.appendChild(
+            h(
+              'div',
+              {
+                class: 'btn-demo',
+                style: {
+                  height: v(props.height),
+                  paddingLeft: v(props.paddingX),
+                  paddingRight: v(props.paddingX),
+                  fontSize: v(props.fontSize),
+                  borderRadius: v(props.borderRadius),
+                },
+              },
+              `Button ${size}`
+            )
+          );
+          col.appendChild(
+            h(
+              'div',
+              {class: 'btn-demo-label'},
+              `${v(props.height)} · ${v(props.paddingX)} px`
+            )
+          );
+          btnRow.appendChild(col);
+        }
+        btnSec.appendChild(btnRow);
+        wrap.appendChild(btnSec);
+
+        // Avatars
+        const avSec = h('div', {class: 'comp-section'});
+        avSec.appendChild(
+          h('div', {class: 'subsection-title'}, 'Avatar Sizes')
+        );
+        const avRow = h('div', {class: 'avatar-demos'});
+        for (const [size, token] of Object.entries(T.component.avatar)) {
+          const dim = v(token);
+          avRow.appendChild(
+            h(
+              'div',
+              {class: 'avatar-demo'},
+              h('div', {
+                class: 'avatar-circle',
+                style: {width: dim, height: dim},
+              }),
+              h('div', {class: 'avatar-label'}, `${size}\n${dim}`)
+            )
+          );
+        }
+        avSec.appendChild(avRow);
+        wrap.appendChild(avSec);
+
+        // Other components as table
+        const otherComps = [
+          'input',
+          'card',
+          'header',
+          'tabBar',
+          'sidebar',
+          'modal',
+          'toast',
+          'focusRing',
+        ];
+        for (const comp of otherComps) {
+          const data = T.component[comp];
+          if (!data) continue;
+          const sec = h('div', {class: 'comp-section'});
+          const label = comp.replace(/([a-z])([A-Z])/g, '$1 $2');
+          sec.appendChild(h('div', {class: 'subsection-title'}, label));
+          const table = h(
+            'table',
+            {class: 'data-table'},
+            h(
+              'thead',
+              {},
+              h('tr', {}, h('th', {}, 'Property'), h('th', {}, 'Value'))
+            )
+          );
+          const tbody = h('tbody');
+          function flatten(obj, prefix) {
+            for (const [k, val] of Object.entries(obj)) {
+              if (k.startsWith('$')) continue;
+              const path = prefix ? `${prefix}.${k}` : k;
+              if (isToken(val)) {
+                tbody.appendChild(
+                  h(
+                    'tr',
+                    {},
+                    h('td', {class: 'mono'}, `component.${comp}.${path}`),
+                    h('td', {class: 'mono'}, String(v(val)))
+                  )
+                );
+              } else if (typeof val === 'object') {
+                flatten(val, path);
+              }
+            }
+          }
+          flatten(data, '');
+          table.appendChild(tbody);
+          sec.appendChild(table);
+          wrap.appendChild(sec);
+        }
+
+        return wrap;
+      }
+
+      // ── BUILD PAGE ──
+      const app = document.getElementById('app');
+
+      app.appendChild(
+        makeSection(
+          'colors',
+          'Foundations',
+          'Color Palettes',
+          'Every hue in the Vera palette — from brand primary to inclusive skin tones.',
+          renderColors()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'typography',
+          'Foundations',
+          'Typography',
+          'Type scale, font families, and weight tokens across mobile and desktop breakpoints.',
+          renderTypography()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'spacing',
+          'Foundations',
+          'Spacing Scale',
+          'A 4px base-unit scale from 0 to 128px for consistent spatial rhythm.',
+          renderSpacing()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'radius',
+          'Foundations',
+          'Border Radius',
+          'Corner radii from sharp to fully rounded.',
+          renderRadius()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'shadows',
+          'Elevation',
+          'Shadows',
+          'Five elevation levels for depth and hierarchy.',
+          renderShadows()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'zindex',
+          'Elevation',
+          'Z-Index',
+          'Stacking order for overlapping elements.',
+          renderZIndex()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'breakpoints',
+          'Layout',
+          'Breakpoints',
+          'Responsive breakpoints from mobile to ultrawide.',
+          renderBreakpoints()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'grid',
+          'Layout',
+          'Grid System',
+          'Column count, gutter, and margin specs per viewport.',
+          renderGrid()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'animation',
+          'Motion',
+          'Animation',
+          'Duration and easing tokens for consistent motion.',
+          renderAnimation()
+        )
+      );
+
+      app.appendChild(
+        makeSection(
+          'components',
+          'Components',
+          'Component Tokens',
+          'Size, spacing, and radius specs for core UI components.',
+          renderComponents()
+        )
+      );
+    </script>
+  </body>
 </html>
