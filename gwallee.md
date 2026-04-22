@@ -12,7 +12,7 @@ We are building Vera around Gwallee.
 
 For most of its history, aesthetic medicine has been a corrective industry. Something goes wrong; something gets fixed. A nose is reshaped. A wrinkle is filled. Acne is treated. The clinic visit is an event — infrequent, high-stakes, often secret.
 
-Gwallee inverts this. In Korea, skin is maintained the way teeth are maintained: on a cadence, before anything goes wrong, in partnership with a professional who knows your history. A light peel every few months. A hydration treatment before a trip. A check-in with a doctor you have been seeing for years. The clinic becomes a routine stop, not a last resort.
+Gwallee inverts this. In Korea, aesthetic treatments are MD-only by law. Skin care there looks closer to therapy than to the dermatologist: on a cadence, before anything goes wrong, in partnership with doctors who know your history. A light peel every few months. A hydration treatment before a trip. A check-in with a doctor you have been seeing for years. The clinic becomes a routine stop, not a last resort.
 
 This is not a new idea. It is a new idea *to most of the world*. Korea is roughly five to ten years ahead of the United States in how this behavior looks in practice — in technology, in pricing, in cultural acceptance. The rest of the world is catching up, and the category has not yet been named in English.
 
