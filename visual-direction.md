@@ -8,13 +8,13 @@
 
 Vera renders as the intersection of three references. Each owns a lane.
 
-| Reference | Lane | One-line translation |
-|---|---|---|
-| **Aesop** | Brand mood, marketing, photography, voice-on-type | Warm restraint as luxury. |
-| **Sulwhasoo** | Heritage moments, typography, signature treatments | Korean discipline without costume. |
-| **Function Health** | Product surfaces, data, marketplace structure | Premium clinical seriousness, editorial register. |
+| Reference           | Lane                                               | One-line translation                              |
+| ------------------- | -------------------------------------------------- | ------------------------------------------------- |
+| **Aesop**           | Brand mood, marketing, photography, voice-on-type  | Warm restraint as luxury.                         |
+| **Sulwhasoo**       | Heritage moments, typography, signature treatments | Korean discipline without costume.                |
+| **Function Health** | Product surfaces, data, marketplace structure      | Premium clinical seriousness, editorial register. |
 
-**Aesop is the dominant note** because Vera's category is loud — medspas, before/afters, urgency banners, anti-aging fear copy. Aesop is the cleanest precedent for *making restraint feel premium* in a noisy space.
+**Aesop is the dominant note** because Vera's category is loud — medspas, before/afters, urgency banners, anti-aging fear copy. Aesop is the cleanest precedent for _making restraint feel premium_ in a noisy space.
 
 **Sulwhasoo is what makes Vera distinct.** Every wellness brand borrows from Aesop; few can credibly borrow from Sulwhasoo. Heritage as signature: 관리 appears once on a landing page, never as hanok textures behind every photo.
 
@@ -43,9 +43,11 @@ This list does nearly as much work as the positive direction. When in doubt, che
 
 Serif display for brand moments. Clean sans for UI. The existing token stack already embodies this.
 
-- **Cormorant Garamond** (serif) — brand moments only. Headlines, Gwallee callouts, manifesto copy, 관리 treatments. Do not use for routine UI copy. Reserve the serif for when the brand is speaking.
-- **Geist** (sans) — UI, product surfaces, body copy. Paired with Pretendard as a Korean-aware fallback.
-- **Korean character treatment** — 관리 or other Hangul characters may appear as a quiet signature, never as background texture.
+- **Cormorant Garamond** (serif, Latin) — brand moments only. Headlines, Gwallee callouts, manifesto copy. Do not use for routine UI copy. Reserve the serif for when the brand is speaking.
+- **Arita Buri** (serif, Korean) — Cormorant's Korean pairing. 관리 wordmarks, Gwallee callouts, manifesto copy. Amorepacific's gift to Korean design; carries the heritage character Pretendard omits. Falls through automatically from the `--font-display` stack.
+- **Geist** (sans, Latin) — UI, product surfaces, body copy.
+- **Pretendard** (sans, Korean) — Geist's Korean pairing for all UI and body copy.
+- **Korean character treatment** — 관리 or other Hangul characters may appear as a quiet signature, never as background texture. When Korean appears in a brand moment, it renders in Arita Buri by default.
 
 ### Color
 
