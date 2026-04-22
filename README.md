@@ -82,4 +82,4 @@ The `build/` directory is gitignored — run `npm run build` after cloning.
 
 ## Version
 
-**v1.1.0** — April 2026
+**v1.1.2** — April 2026

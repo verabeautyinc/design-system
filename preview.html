@@ -138,6 +138,34 @@
         line-height: 1.65;
       }
 
+      .hero-brand-links {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        font-size: 12px;
+        color: var(--text3);
+      }
+
+      .hero-brand-links .label {
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-brand-links a {
+        color: var(--text2);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1px;
+        transition: color 0.15s ease, border-color 0.15s ease;
+      }
+
+      .hero-brand-links a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
       /* ── Sections ── */
       .container {
         max-width: 1280px;
@@ -297,6 +325,65 @@
       .semantic-swatch span {
         font-family: var(--mono);
         font-size: 10px;
+      }
+
+      /* Color usage rules (from visual-direction.md) */
+      .color-rules {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 40px;
+      }
+
+      .color-rules-title {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+
+      .color-rules-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--text2);
+        line-height: 1.55;
+      }
+
+      .color-rules-list strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* Status (success/warning/error/info) — compact grid, wraps fluidly */
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+
+      .status-group {
+        min-width: 0;
+      }
+
+      .status-group-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text2);
+        margin-bottom: 8px;
+        text-transform: capitalize;
+        letter-spacing: 0.02em;
+      }
+
+      .status-group .swatch {
+        aspect-ratio: auto;
+        min-height: 48px;
+        height: 56px;
       }
 
       /* ── Typography ── */
@@ -794,15 +881,10 @@
     <nav>
       <div class="nav-inner">
         <span class="brand">Vera</span>
-        <a href="#colors">Colors</a>
-        <a href="#typography">Typography</a>
-        <a href="#spacing">Spacing</a>
-        <a href="#radius">Radius</a>
-        <a href="#shadows">Shadows</a>
-        <a href="#zindex">Z-Index</a>
-        <a href="#breakpoints">Breakpoints</a>
-        <a href="#grid">Grid</a>
-        <a href="#animation">Animation</a>
+        <a href="#colors">Foundations</a>
+        <a href="#shadows">Elevation</a>
+        <a href="#breakpoints">Layout</a>
+        <a href="#animation">Motion</a>
         <a href="#components">Components</a>
       </div>
     </nav>
@@ -814,6 +896,27 @@
         and motion value that shapes the experience across mobile, web, and
         Figma.
       </p>
+      <div class="hero-brand-links">
+        <span class="label">Brand docs</span>
+        <a
+          href="https://github.com/verabeautyinc/design-system/blob/main/brand-identity.md"
+          target="_blank"
+          rel="noopener"
+          >Brand Identity</a
+        >
+        <a
+          href="https://github.com/verabeautyinc/design-system/blob/main/gwallee.md"
+          target="_blank"
+          rel="noopener"
+          >Gwallee</a
+        >
+        <a
+          href="https://github.com/verabeautyinc/design-system/blob/main/visual-direction.md"
+          target="_blank"
+          rel="noopener"
+          >Visual Direction</a
+        >
+      </div>
     </div>
 
     <div class="container">
@@ -973,7 +1076,6 @@
               900: {$value: '#1E3A8A', $type: 'color'},
             },
             mst: {
-              10: {$value: '#292420', $type: 'color'},
               $description:
                 'Monk Skin Tone Scale — 10-point inclusive skin tone representation',
               '01': {$value: '#F6EDE4', $type: 'color'},
@@ -985,6 +1087,7 @@
               '07': {$value: '#825C43', $type: 'color'},
               '08': {$value: '#604134', $type: 'color'},
               '09': {$value: '#3A312A', $type: 'color'},
+              '10': {$value: '#292420', $type: 'color'},
             },
             semantic: {
               $description: 'Mapped semantic colors for light and dark mode',
@@ -1459,24 +1562,49 @@
       // ── COLORS ──
       function renderColors() {
         const wrap = h('div');
-        const colorGroups = [
-          'primary',
-          'neutral',
-          'success',
-          'warning',
-          'error',
-          'info',
-          'mst',
-        ];
 
-        for (const group of colorGroups) {
-          const data = T.color[group];
-          const tokens = Object.entries(data).filter(([k, v]) => isToken(v));
-          const sub = h('div', {class: 'subsection'});
-          const desc = data.$description ? ` — ${data.$description}` : '';
-          sub.appendChild(
-            h('div', {class: 'subsection-title'}, `${group}${desc}`)
-          );
+        // Usage rules, lifted from visual-direction.md
+        const rule = (strong, rest) =>
+          h('li', {}, h('strong', {}, strong), ' ' + rest);
+        const rulesCard = h(
+          'div',
+          {class: 'color-rules'},
+          h('div', {class: 'color-rules-title'}, 'Usage'),
+          h(
+            'ul',
+            {class: 'color-rules-list'},
+            rule(
+              'Warm neutrals ≥ 80%',
+              '— they dominate every surface. Coral is the accent, not the field.'
+            ),
+            rule(
+              'Coral ≤ 10%',
+              '— reserved for primary CTAs, links, and key moments. Enforce the ceiling.'
+            ),
+            rule(
+              'MST is never decorative',
+              '— reserved strictly for skin-tone representation in UI and imagery.'
+            ),
+            rule(
+              'Deep neutrals (600–800) carry editorial moments',
+              '— big serif numbers on warm cream, not on white.'
+            )
+          )
+        );
+        wrap.appendChild(rulesCard);
+
+        const mainGroups = ['primary', 'neutral', 'mst'];
+        const statusGroups = ['success', 'warning', 'error', 'info'];
+
+        // JS hoists canonical-integer string keys ('10') before string keys
+        // ('01'-'09'), so sort numerically for correct MST display.
+        const sortTokens = ([a], [b]) =>
+          a.localeCompare(b, undefined, {numeric: true});
+
+        function buildStrip(group, data) {
+          const tokens = Object.entries(data)
+            .filter(([k, val]) => isToken(val))
+            .sort(sortTokens);
           const strip = h('div', {class: 'swatch-strip'});
           for (const [key, token] of tokens) {
             const hex = v(token);
@@ -1496,9 +1624,38 @@
             );
             strip.appendChild(swatch);
           }
-          sub.appendChild(strip);
+          return strip;
+        }
+
+        for (const group of mainGroups) {
+          const data = T.color[group];
+          const sub = h('div', {class: 'subsection'});
+          const desc = data.$description ? ` — ${data.$description}` : '';
+          sub.appendChild(
+            h('div', {class: 'subsection-title'}, `${group}${desc}`)
+          );
+          sub.appendChild(buildStrip(group, data));
           wrap.appendChild(sub);
         }
+
+        // Status colors in a 2x2 grid (4 groups × 5 shades each)
+        const statusSub = h('div', {class: 'subsection'});
+        statusSub.appendChild(
+          h('div', {class: 'subsection-title'}, 'Status')
+        );
+        const statusGrid = h('div', {class: 'status-grid'});
+        for (const group of statusGroups) {
+          const data = T.color[group];
+          const card = h(
+            'div',
+            {class: 'status-group'},
+            h('div', {class: 'status-group-label'}, group),
+            buildStrip(group, data)
+          );
+          statusGrid.appendChild(card);
+        }
+        statusSub.appendChild(statusGrid);
+        wrap.appendChild(statusSub);
 
         // Semantic
         const sem = T.color.semantic;
