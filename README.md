@@ -14,6 +14,7 @@ Built on Apple Human Interface Guidelines principles with a focus on **minimalis
 
 - [Brand Identity](./brand-identity.md) — Mission, vision, values, voice
 - [Gwallee](./gwallee.md) — The manifesto. What Gwallee is, why Vera is built around it, and how we speak it.
+- [Visual Direction](./visual-direction.md) — Reference set (Aesop × Sulwhasoo × Function Health) and the design implications that flow from it.
 
 ### Foundations
 
@@ -90,4 +91,4 @@ The `build/` directory is gitignored — run `npm run build` after cloning.
 
 ## Version
 
-**v1.0.2** — March 2026
+**v1.1.0** — April 2026
