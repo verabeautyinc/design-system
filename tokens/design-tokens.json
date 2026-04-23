@@ -311,6 +311,74 @@
             "fontWeight": { "$value": 500, "$type": "fontWeight" }
           }
         },
+        "tablet": {
+          "display": {
+            "fontSize": { "$value": "40px", "$type": "dimension" },
+            "lineHeight": { "$value": "48px", "$type": "dimension" },
+            "letterSpacing": { "$value": "-0.5px", "$type": "dimension" },
+            "fontWeight": { "$value": 300, "$type": "fontWeight" }
+          },
+          "headline": {
+            "fontSize": { "$value": "32px", "$type": "dimension" },
+            "lineHeight": { "$value": "38px", "$type": "dimension" },
+            "letterSpacing": { "$value": "-0.4px", "$type": "dimension" },
+            "fontWeight": { "$value": 600, "$type": "fontWeight" }
+          },
+          "title1": {
+            "fontSize": { "$value": "26px", "$type": "dimension" },
+            "lineHeight": { "$value": "32px", "$type": "dimension" },
+            "letterSpacing": { "$value": "-0.2px", "$type": "dimension" },
+            "fontWeight": { "$value": 600, "$type": "fontWeight" }
+          },
+          "title2": {
+            "fontSize": { "$value": "22px", "$type": "dimension" },
+            "lineHeight": { "$value": "28px", "$type": "dimension" },
+            "letterSpacing": { "$value": "-0.1px", "$type": "dimension" },
+            "fontWeight": { "$value": 600, "$type": "fontWeight" }
+          },
+          "title3": {
+            "fontSize": { "$value": "18px", "$type": "dimension" },
+            "lineHeight": { "$value": "24px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0px", "$type": "dimension" },
+            "fontWeight": { "$value": 600, "$type": "fontWeight" }
+          },
+          "body": {
+            "fontSize": { "$value": "17px", "$type": "dimension" },
+            "lineHeight": { "$value": "26px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0px", "$type": "dimension" },
+            "fontWeight": { "$value": 400, "$type": "fontWeight" }
+          },
+          "callout": {
+            "fontSize": { "$value": "16px", "$type": "dimension" },
+            "lineHeight": { "$value": "22px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0px", "$type": "dimension" },
+            "fontWeight": { "$value": 400, "$type": "fontWeight" }
+          },
+          "subheadline": {
+            "fontSize": { "$value": "15px", "$type": "dimension" },
+            "lineHeight": { "$value": "22px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0px", "$type": "dimension" },
+            "fontWeight": { "$value": 500, "$type": "fontWeight" }
+          },
+          "footnote": {
+            "fontSize": { "$value": "13px", "$type": "dimension" },
+            "lineHeight": { "$value": "18px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0px", "$type": "dimension" },
+            "fontWeight": { "$value": 400, "$type": "fontWeight" }
+          },
+          "caption1": {
+            "fontSize": { "$value": "12px", "$type": "dimension" },
+            "lineHeight": { "$value": "16px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0.1px", "$type": "dimension" },
+            "fontWeight": { "$value": 400, "$type": "fontWeight" }
+          },
+          "caption2": {
+            "fontSize": { "$value": "11px", "$type": "dimension" },
+            "lineHeight": { "$value": "14px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0.2px", "$type": "dimension" },
+            "fontWeight": { "$value": 500, "$type": "fontWeight" }
+          }
+        },
         "desktop": {
           "display": {
             "fontSize": { "$value": "48px", "$type": "dimension" },
