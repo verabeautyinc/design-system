@@ -103,7 +103,7 @@ if (existsSync(tsPath)) {
 
   // Correct primary-500 hex value
   assert(
-    ts.includes('"#D85959"') || ts.includes('"#d85959"'),
+    ts.includes('"#B5373A"') || ts.includes('"#b5373a"'),
     'TS has correct primary-500 hex value',
   );
 
@@ -172,7 +172,7 @@ if (existsSync(figmaPath)) {
 
     // Preserves DTCG format
     assert(
-      figma.color?.primary?.['500']?.['$value'] === '#D85959',
+      figma.color?.primary?.['500']?.['$value'] === '#B5373A',
       'Figma preserves $value',
     );
     assert(

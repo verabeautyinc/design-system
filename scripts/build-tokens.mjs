@@ -187,12 +187,33 @@ writeFileSync('build/figma/vera.json', JSON.stringify(vera, null, 2) + '\n');
 
 const previewPath = 'preview.html';
 if (existsSync(previewPath)) {
-  const html = readFileSync(previewPath, 'utf-8');
-  const updated = html.replace(
-    /^const TOKENS = .+$/m,
-    `const TOKENS = ${JSON.stringify(source)};`,
+  let html = readFileSync(previewPath, 'utf-8');
+
+  // Re-embed the full TOKENS object between markers. It's pretty-printed and
+  // indented to sit inside the <script> block, so the file stays readable and
+  // diffs stay meaningful. Markers (not a line-anchored regex) keep the replace
+  // resilient to the object's leading indentation and spanning many lines.
+  const indent = '      ';
+  const tokensLiteral = JSON.stringify(source, null, 2)
+    .split('\n')
+    .map((line, i) => (i === 0 ? line : indent + line))
+    .join('\n');
+  html = html.replace(
+    /(\/\/ @tokens:start\n)[\s\S]*?(\n[ \t]*\/\/ @tokens:end)/,
+    (_, start, end) => `${start}${indent}const TOKENS = ${tokensLiteral};${end}`,
   );
-  writeFileSync(previewPath, updated);
+
+  // Sync the preview's brand CSS variables to the primary ramp. These live in
+  // CSS (outside TOKENS), so the swatch chrome would otherwise drift on retone.
+  const primary = source.vera.color.primary;
+  html = html
+    .replace(/(--accent:\s*)#[0-9a-fA-F]{3,8}(;)/, `$1${primary['500'].$value}$2`)
+    .replace(
+      /(--accent-light:\s*)#[0-9a-fA-F]{3,8}(;)/,
+      `$1${primary['50'].$value}$2`,
+    );
+
+  writeFileSync(previewPath, html);
 }
 
 console.log('\n\u2705 Built all token outputs:');

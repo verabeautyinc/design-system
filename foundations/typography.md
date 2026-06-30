@@ -27,14 +27,14 @@ Typography is the primary vehicle for Vera's voice — calm authority expressed 
 | ExtraBold  | 800   | `font-extrabold`  | Hero headlines, marketing       |
 | Black      | 900   | `font-black`      | Display impact (limited use)    |
 
-### Display Accent — Cormorant Garamond
+### Display — Cormorant Garamond
 
-For premium marketing moments — hero headlines, editorial content, and brand storytelling — **Cormorant Garamond** adds a layer of luxury refinement. Use sparingly.
+**Cormorant Garamond** is our global display typeface. It carries the `display` type style — used for hero copy, major screen headings, and editorial moments across product and marketing — adding a layer of premium refinement. It is a display face, not a UI face: never use it for labels, metadata, badges, tabs, rows, controls, or body text.
 
 - **Source:** [Google Fonts](https://fonts.google.com/specimen/Cormorant+Garamond)
 - **License:** SIL Open Font License
-- **Weights used:** Light (300), Regular (400), SemiBold (600)
-- **Usage:** Display text only (32px+). Never for UI elements or body text.
+- **Weights used:** Regular (400), SemiBold (600) — SemiBold is the default for the `display` style so it holds presence at screen sizes
+- **Usage:** Display style only (hero copy, major screen headings, editorial). Never for UI elements or body text.
 
 ### Wordmark — Vera Custom
 
@@ -115,54 +115,54 @@ Vera's type scale follows Apple HIG naming conventions with sizes optimized for 
 
 ### Mobile (375px viewport)
 
-| Style           | Size | Rem    | Line Height | Letter Spacing | Weight       |
-| --------------- | ---- | ------ | ----------- | -------------- | ------------ |
-| Display         | 34px | 2.125  | 40px (1.18) | -0.4px         | Light 300    |
-| Headline        | 28px | 1.75   | 34px (1.21) | -0.3px         | SemiBold 600 |
-| Title 1         | 22px | 1.375  | 28px (1.27) | -0.2px         | SemiBold 600 |
-| Title 2         | 20px | 1.25   | 26px (1.30) | -0.1px         | SemiBold 600 |
-| Title 3         | 17px | 1.0625 | 24px (1.41) | 0px            | SemiBold 600 |
-| Body            | 17px | 1.0625 | 26px (1.53) | 0px            | Regular 400  |
-| Body (emphasis) | 17px | 1.0625 | 26px (1.53) | 0px            | SemiBold 600 |
-| Callout         | 16px | 1.0    | 22px (1.38) | 0px            | Regular 400  |
-| Subheadline     | 15px | 0.9375 | 22px (1.47) | 0px            | Medium 500   |
-| Footnote        | 13px | 0.8125 | 18px (1.38) | 0px            | Regular 400  |
-| Caption 1       | 12px | 0.75   | 16px (1.33) | 0.1px          | Regular 400  |
-| Caption 2       | 11px | 0.6875 | 14px (1.27) | 0.2px          | Medium 500   |
+| Style           | Size | Rem    | Line Height | Letter Spacing | Weight                 |
+| --------------- | ---- | ------ | ----------- | -------------- | ---------------------- |
+| Display         | 34px | 2.125  | 40px (1.18) | -0.4px         | Cormorant SemiBold 600 |
+| Headline        | 28px | 1.75   | 34px (1.21) | -0.3px         | SemiBold 600           |
+| Title 1         | 22px | 1.375  | 28px (1.27) | -0.2px         | SemiBold 600           |
+| Title 2         | 20px | 1.25   | 26px (1.30) | -0.1px         | SemiBold 600           |
+| Title 3         | 17px | 1.0625 | 24px (1.41) | 0px            | SemiBold 600           |
+| Body            | 17px | 1.0625 | 26px (1.53) | 0px            | Regular 400            |
+| Body (emphasis) | 17px | 1.0625 | 26px (1.53) | 0px            | SemiBold 600           |
+| Callout         | 16px | 1.0    | 22px (1.38) | 0px            | Regular 400            |
+| Subheadline     | 15px | 0.9375 | 22px (1.47) | 0px            | Medium 500             |
+| Footnote        | 13px | 0.8125 | 18px (1.38) | 0px            | Regular 400            |
+| Caption 1       | 12px | 0.75   | 16px (1.33) | 0.1px          | Regular 400            |
+| Caption 2       | 11px | 0.6875 | 14px (1.27) | 0.2px          | Medium 500             |
 
 ### Tablet (768px viewport)
 
-| Style           | Size | Line Height | Letter Spacing | Weight       |
-| --------------- | ---- | ----------- | -------------- | ------------ |
-| Display         | 40px | 48px (1.20) | -0.5px         | Light 300    |
-| Headline        | 32px | 38px (1.19) | -0.4px         | SemiBold 600 |
-| Title 1         | 26px | 32px (1.23) | -0.2px         | SemiBold 600 |
-| Title 2         | 22px | 28px (1.27) | -0.1px         | SemiBold 600 |
-| Title 3         | 18px | 24px (1.33) | 0px            | SemiBold 600 |
-| Body            | 17px | 26px (1.53) | 0px            | Regular 400  |
-| Body (emphasis) | 17px | 26px (1.53) | 0px            | SemiBold 600 |
-| Callout         | 16px | 22px (1.38) | 0px            | Regular 400  |
-| Subheadline     | 15px | 22px (1.47) | 0px            | Medium 500   |
-| Footnote        | 13px | 18px (1.38) | 0px            | Regular 400  |
-| Caption 1       | 12px | 16px (1.33) | 0.1px          | Regular 400  |
-| Caption 2       | 11px | 14px (1.27) | 0.2px          | Medium 500   |
+| Style           | Size | Line Height | Letter Spacing | Weight                 |
+| --------------- | ---- | ----------- | -------------- | ---------------------- |
+| Display         | 40px | 48px (1.20) | -0.5px         | Cormorant SemiBold 600 |
+| Headline        | 32px | 38px (1.19) | -0.4px         | SemiBold 600           |
+| Title 1         | 26px | 32px (1.23) | -0.2px         | SemiBold 600           |
+| Title 2         | 22px | 28px (1.27) | -0.1px         | SemiBold 600           |
+| Title 3         | 18px | 24px (1.33) | 0px            | SemiBold 600           |
+| Body            | 17px | 26px (1.53) | 0px            | Regular 400            |
+| Body (emphasis) | 17px | 26px (1.53) | 0px            | SemiBold 600           |
+| Callout         | 16px | 22px (1.38) | 0px            | Regular 400            |
+| Subheadline     | 15px | 22px (1.47) | 0px            | Medium 500             |
+| Footnote        | 13px | 18px (1.38) | 0px            | Regular 400            |
+| Caption 1       | 12px | 16px (1.33) | 0.1px          | Regular 400            |
+| Caption 2       | 11px | 14px (1.27) | 0.2px          | Medium 500             |
 
 ### Desktop (1440px viewport)
 
-| Style           | Size | Line Height | Letter Spacing | Weight       |
-| --------------- | ---- | ----------- | -------------- | ------------ |
-| Display         | 48px | 56px (1.17) | -0.6px         | Light 300    |
-| Headline        | 36px | 44px (1.22) | -0.4px         | SemiBold 600 |
-| Title 1         | 28px | 36px (1.29) | -0.3px         | SemiBold 600 |
-| Title 2         | 24px | 30px (1.25) | -0.2px         | SemiBold 600 |
-| Title 3         | 20px | 26px (1.30) | -0.1px         | SemiBold 600 |
-| Body            | 17px | 28px (1.65) | 0px            | Regular 400  |
-| Body (emphasis) | 17px | 28px (1.65) | 0px            | SemiBold 600 |
-| Callout         | 16px | 24px (1.50) | 0px            | Regular 400  |
-| Subheadline     | 15px | 22px (1.47) | 0px            | Medium 500   |
-| Footnote        | 13px | 18px (1.38) | 0px            | Regular 400  |
-| Caption 1       | 12px | 16px (1.33) | 0.1px          | Regular 400  |
-| Caption 2       | 11px | 14px (1.27) | 0.2px          | Medium 500   |
+| Style           | Size | Line Height | Letter Spacing | Weight                 |
+| --------------- | ---- | ----------- | -------------- | ---------------------- |
+| Display         | 48px | 56px (1.17) | -0.6px         | Cormorant SemiBold 600 |
+| Headline        | 36px | 44px (1.22) | -0.4px         | SemiBold 600           |
+| Title 1         | 28px | 36px (1.29) | -0.3px         | SemiBold 600           |
+| Title 2         | 24px | 30px (1.25) | -0.2px         | SemiBold 600           |
+| Title 3         | 20px | 26px (1.30) | -0.1px         | SemiBold 600           |
+| Body            | 17px | 28px (1.65) | 0px            | Regular 400            |
+| Body (emphasis) | 17px | 28px (1.65) | 0px            | SemiBold 600           |
+| Callout         | 16px | 24px (1.50) | 0px            | Regular 400            |
+| Subheadline     | 15px | 22px (1.47) | 0px            | Medium 500             |
+| Footnote        | 13px | 18px (1.38) | 0px            | Regular 400            |
+| Caption 1       | 12px | 16px (1.33) | 0.1px          | Regular 400            |
+| Caption 2       | 11px | 14px (1.27) | 0.2px          | Medium 500             |
 
 ---
 
@@ -170,23 +170,23 @@ Vera's type scale follows Apple HIG naming conventions with sizes optimized for 
 
 ### Principle: One Voice, Two Registers
 
-Geist handles 95% of all typography. Cormorant Garamond appears only for **premium brand moments** — think of it as Vera "dressing up." The Vera Custom font is reserved exclusively for the logo wordmark.
+Geist handles the vast majority of typography — all UI and body content. Cormorant Garamond owns the `display` register: hero copy, major screen headings, and editorial moments, across both product and marketing. The Vera Custom font is reserved exclusively for the logo wordmark.
 
-| Context                   | Font                | Example                                                              |
-| ------------------------- | ------------------- | -------------------------------------------------------------------- |
-| **All UI**                | Geist               | Buttons, labels, navigation, forms, cards                            |
-| **Body content**          | Geist               | Treatment descriptions, reviews, articles                            |
-| **Headlines (product)**   | Geist SemiBold/Bold | Section headers, page titles                                         |
-| **Headlines (marketing)** | Cormorant Garamond  | Hero banners, landing pages, email headers                           |
-| **Logo / Wordmark**       | Vera Custom         | "vera" wordmark only                                                 |
-| **Data**                  | Geist Mono          | Appointment IDs, prices, treatment codes                             |
-| **Korean content**        | Pretendard          | All Korean body / UI text mirrors Geist hierarchy                    |
-| **Korean brand moments**  | Arita Buri          | Gwallee callouts, 관리 wordmarks, manifesto copy — mirrors Cormorant |
+| Context                              | Font                | Example                                                                      |
+| ------------------------------------ | ------------------- | --------------------------------------------------------------------------- |
+| **All UI**                           | Geist               | Buttons, labels, navigation, forms, cards, badges, tabs, rows               |
+| **Body content**                     | Geist               | Treatment descriptions, reviews, articles                                   |
+| **Display (hero & major headings)**  | Cormorant Garamond  | Screen heros, major screen headings, editorial, hero banners, landing pages |
+| **Headlines (product, sub-display)** | Geist SemiBold/Bold | Section headers, card titles, page subtitles                                |
+| **Logo / Wordmark**                  | Vera Custom         | "vera" wordmark only                                                         |
+| **Data**                             | Geist Mono          | Appointment IDs, prices, treatment codes                                    |
+| **Korean content**                   | Pretendard          | All Korean body / UI text mirrors Geist hierarchy                           |
+| **Korean brand moments**             | Arita Buri          | Gwallee callouts, 관리 wordmarks, manifesto copy — mirrors Cormorant         |
 
 ### Pairing Rules
 
 1. **Never mix Geist and Cormorant in the same text block** — they live in separate hierarchical zones
-2. **Cormorant is for display only** — minimum 32px, maximum 2 instances per screen
+2. **Cormorant is for the display style only** — reserve it for hero copy and major screen headings; keep it sparing (typically one display moment per screen) and never on UI or body text
 3. **Vera Custom is for the logo only** — never use it for any other text
 4. **Data in monospace** — any string the user might need to copy, compare, or reference
 5. **One font weight per element** — never apply two weights to the same component
