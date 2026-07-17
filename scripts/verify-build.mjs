@@ -128,6 +128,26 @@ if (existsSync(tsPath)) {
 
       // Colors should be strings
       assert(typeof tokens.color?.primary?.['500'] === 'string', 'Color values are strings');
+      assert(
+        tokens.color?.semantic?.background?.light === '#F5F0EA' &&
+          tokens.color?.semantic?.surfaceRaised?.light === '#FBF7F1' &&
+          tokens.color?.semantic?.surfaceGrouped?.light === '#E8DDD0' &&
+          tokens.color?.semantic?.textPrimary?.light === '#2E2723' &&
+          tokens.color?.semantic?.textSecondary?.light === '#645A52' &&
+          tokens.color?.semantic?.textTertiary?.light === '#6B6058',
+        'TS has approved warm semantic values',
+      );
+      const legacySurfaceKeys = [1, 2, 3].map((level) => `surface${level}`);
+      assert(
+        legacySurfaceKeys.every(
+          (key) => !(key in (tokens.color?.semantic ?? {})),
+        ),
+        'TS has no legacy surface roles',
+      );
+      assert(
+        Object.keys(tokens.color?.mst ?? {}).length === 10,
+        'TS contains all ten Monk tones',
+      );
 
       // fontWeight should be numbers
       assert(
@@ -178,6 +198,14 @@ if (existsSync(figmaPath)) {
     assert(
       figma.color?.primary?.['500']?.['$type'] === 'color',
       'Figma preserves $type',
+    );
+    assert(
+      figma.color?.semantic?.background?.light?.['$value'] === '#F5F0EA',
+      'Figma contains the warm background semantic',
+    );
+    assert(
+      figma.color?.reception?.red?.['$value'] === '#FF383C',
+      'Figma preserves reception status colors',
     );
 
     // Preserves group-level $description

@@ -206,11 +206,31 @@ if (existsSync(previewPath)) {
   // Sync the preview's brand CSS variables to the primary ramp. These live in
   // CSS (outside TOKENS), so the swatch chrome would otherwise drift on retone.
   const primary = source.vera.color.primary;
+  const semantic = source.vera.color.semantic;
   html = html
     .replace(/(--accent:\s*)#[0-9a-fA-F]{3,8}(;)/, `$1${primary['500'].$value}$2`)
     .replace(
       /(--accent-light:\s*)#[0-9a-fA-F]{3,8}(;)/,
       `$1${primary['50'].$value}$2`,
+    )
+    .replace(/(--bg:\s*)[^;]+(;)/, `$1${semantic.background.light.$value}$2`)
+    .replace(
+      /(--surface:\s*)[^;]+(;)/,
+      `$1${semantic.surfaceRaised.light.$value}$2`,
+    )
+    .replace(
+      /(--surface-grouped:\s*)[^;]+(;)/,
+      `$1${semantic.surfaceGrouped.light.$value}$2`,
+    )
+    .replace(/(--border:\s*)[^;]+(;)/, `$1${semantic.border.light.$value}$2`)
+    .replace(/(--text:\s*)[^;]+(;)/, `$1${semantic.textPrimary.light.$value}$2`)
+    .replace(
+      /(--text2:\s*)[^;]+(;)/,
+      `$1${semantic.textSecondary.light.$value}$2`,
+    )
+    .replace(
+      /(--text3:\s*)[^;]+(;)/,
+      `$1${semantic.textTertiary.light.$value}$2`,
     );
 
   writeFileSync(previewPath, html);

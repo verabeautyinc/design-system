@@ -162,34 +162,52 @@
         "09": { "$value": "#3A312A", "$type": "color" },
         "10": { "$value": "#292420", "$type": "color" }
       },
+      "reception": {
+        "$description": "Reception appointment statuses. Intentionally preserved during the warm color migration.",
+        "red": { "$value": "#FF383C", "$type": "color" },
+        "yellow": { "$value": "#FFCC00", "$type": "color" },
+        "green": { "$value": "#41CB63", "$type": "color" },
+        "blue": { "$value": "#0088FF", "$type": "color" }
+      },
       "semantic": {
         "$description": "Mapped semantic colors for light and dark mode",
         "background": {
-          "light": { "$value": "#FFFFFF", "$type": "color" },
+          "light": { "$value": "#F5F0EA", "$type": "color" },
           "dark": { "$value": "#1C1917", "$type": "color" }
         },
-        "surface1": {
-          "light": { "$value": "#FAFAF9", "$type": "color" },
+        "surfaceRaised": {
+          "light": { "$value": "#FBF7F1", "$type": "color" },
           "dark": { "$value": "#292524", "$type": "color" }
         },
-        "surface2": {
-          "light": { "$value": "#F5F5F3", "$type": "color" },
+        "surfaceGrouped": {
+          "light": { "$value": "#E8DDD0", "$type": "color" },
           "dark": { "$value": "#44403C", "$type": "color" }
         },
-        "surface3": {
-          "light": { "$value": "#E7E5E4", "$type": "color" },
-          "dark": { "$value": "#57534E", "$type": "color" }
+        "surfaceDisabled": {
+          "$description": "Dark mapping is provisional until mobile dark mode is designed.",
+          "light": { "$value": "#E8DDD0", "$type": "color" },
+          "dark": { "$value": "#E8DDD0", "$type": "color" }
+        },
+        "surfaceBrandTint": {
+          "$description": "Dark mapping is provisional until mobile dark mode is designed.",
+          "light": { "$value": "#F4E4E0", "$type": "color" },
+          "dark": { "$value": "#F4E4E0", "$type": "color" }
+        },
+        "avatarFallback": {
+          "$description": "Dark mapping is provisional until mobile dark mode is designed.",
+          "light": { "$value": "#8B644A", "$type": "color" },
+          "dark": { "$value": "#8B644A", "$type": "color" }
         },
         "textPrimary": {
-          "light": { "$value": "#1C1917", "$type": "color" },
+          "light": { "$value": "#2E2723", "$type": "color" },
           "dark": { "$value": "#FAFAF9", "$type": "color" }
         },
         "textSecondary": {
-          "light": { "$value": "#57534E", "$type": "color" },
+          "light": { "$value": "#645A52", "$type": "color" },
           "dark": { "$value": "#D6D3D1", "$type": "color" }
         },
         "textTertiary": {
-          "light": { "$value": "#78716C", "$type": "color" },
+          "light": { "$value": "#6B6058", "$type": "color" },
           "dark": { "$value": "#A8A29E", "$type": "color" }
         },
         "textDisabled": {
@@ -197,8 +215,23 @@
           "dark": { "$value": "#78716C", "$type": "color" }
         },
         "border": {
-          "light": { "$value": "#E7E5E4", "$type": "color" },
+          "light": { "$value": "rgba(46,39,35,0.10)", "$type": "color" },
           "dark": { "$value": "#44403C", "$type": "color" }
+        },
+        "decorativeMuted": {
+          "$description": "Decorative labels and timing anchors only; prohibited for meaningful text. Dark mapping is provisional until mobile dark mode is designed.",
+          "light": { "$value": "#A89A8E", "$type": "color" },
+          "dark": { "$value": "#A89A8E", "$type": "color" }
+        },
+        "borderBrand": {
+          "$description": "Dark mapping is provisional until mobile dark mode is designed.",
+          "light": { "$value": "rgba(181,55,58,0.24)", "$type": "color" },
+          "dark": { "$value": "rgba(181,55,58,0.24)", "$type": "color" }
+        },
+        "shadowAction": {
+          "$description": "Dark mapping is provisional until mobile dark mode is designed.",
+          "light": { "$value": "rgba(120,80,50,0.18)", "$type": "color" },
+          "dark": { "$value": "rgba(120,80,50,0.18)", "$type": "color" }
         },
         "brandAccent": {
           "light": { "$value": "#B5373A", "$type": "color" },
@@ -280,6 +313,20 @@
             "lineHeight": { "$value": "26px", "$type": "dimension" },
             "letterSpacing": { "$value": "0px", "$type": "dimension" },
             "fontWeight": { "$value": 400, "$type": "fontWeight" }
+          },
+          "bodyCompact": {
+            "$description": "Compact body copy for cards and supporting descriptions.",
+            "fontSize": { "$value": "14px", "$type": "dimension" },
+            "lineHeight": { "$value": "20px", "$type": "dimension" },
+            "letterSpacing": { "$value": "0px", "$type": "dimension" },
+            "fontWeight": { "$value": 400, "$type": "fontWeight" }
+          },
+          "sectionLabel": {
+            "$description": "Uppercase section label; pair with semantic.decorativeMuted only for non-essential text.",
+            "fontSize": { "$value": "12px", "$type": "dimension" },
+            "lineHeight": { "$value": "16px", "$type": "dimension" },
+            "letterSpacing": { "$value": "1.2px", "$type": "dimension" },
+            "fontWeight": { "$value": 600, "$type": "fontWeight" }
           },
           "callout": {
             "fontSize": { "$value": "16px", "$type": "dimension" },
