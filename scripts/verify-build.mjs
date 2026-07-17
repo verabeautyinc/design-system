@@ -132,6 +132,7 @@ if (existsSync(tsPath)) {
         tokens.color?.semantic?.background?.light === '#F5F0EA' &&
           tokens.color?.semantic?.surfaceRaised?.light === '#FBF7F1' &&
           tokens.color?.semantic?.surfaceGrouped?.light === '#E8DDD0' &&
+          tokens.color?.semantic?.surfaceInput?.light === '#FFFFFF' &&
           tokens.color?.semantic?.textPrimary?.light === '#2E2723' &&
           tokens.color?.semantic?.textSecondary?.light === '#645A52' &&
           tokens.color?.semantic?.textTertiary?.light === '#6B6058',

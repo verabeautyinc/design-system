@@ -204,6 +204,7 @@ Warm, purpose-driven aliases are the application color contract. Product code sh
 | Surface grouped    | `#E8DDD0`              | Grouped and nested sections                             |
 | Surface disabled   | `#E8DDD0`              | Disabled controls and tracks                            |
 | Surface brand tint | `#F4E4E0`              | Low-emphasis brand fill                                 |
+| Surface input      | `#FFFFFF`              | Enabled inputs, select triggers, and search fields      |
 | Avatar fallback    | `#8B644A`              | Warm fallback avatar                                    |
 | Primary text       | `#2E2723`              | Titles and emphasized values                            |
 | Secondary text     | `#645A52`              | Body copy and supporting values                         |
