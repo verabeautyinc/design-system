@@ -125,6 +125,13 @@ if (existsSync(tsPath)) {
         typeof tokens.animation?.duration?.fast === 'number',
         'Duration values are numbers',
       );
+      assert(
+        tokens.component?.input?.height?.mobile === 48 &&
+          tokens.component?.input?.paddingX === 16 &&
+          tokens.component?.input?.paddingY === 12 &&
+          tokens.component?.input?.borderRadius === 12,
+        'TS has standard mobile input dimensions',
+      );
 
       // Colors should be strings
       assert(typeof tokens.color?.primary?.['500'] === 'string', 'Color values are strings');

@@ -167,7 +167,7 @@ Space inside a container, between its edge and its content.
 |-----------|--------|--------|---------|
 | Button | 12px h, 8px v | 12px h, 8px v | 16px h, 10px v |
 | Card | 16px | 20px | 24px |
-| Input field | 12px h, 10px v | 12px h, 10px v | 16px h, 12px v |
+| Input field | 16px h, 12px v | 16px h, 12px v | 16px h, 12px v |
 | Modal | 16px | 24px | 32px |
 | Page | 16px | 32px | 80px |
 
