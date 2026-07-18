@@ -223,7 +223,7 @@ Warm, purpose-driven aliases are the application color contract. Product code sh
 | ---------------- | ----------------- | ------------------------ | ----------------- |
 | Primary button   | `brandAccent`     | White                    | None              |
 | Secondary button | `surfaceInput`    | `textPrimary`            | `border`          |
-| Tertiary button  | `surfaceInput`    | `brandAccent`            | None              |
+| Tertiary button  | Transparent       | `brandAccent`            | None              |
 | Input / search   | `surfaceInput`    | `textPrimary`            | `border`          |
 | Disabled control | `surfaceDisabled` | `textDisabled`           | As needed by type |
 
