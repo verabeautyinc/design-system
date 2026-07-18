@@ -84,4 +84,4 @@ React Native token code generation and cross-repository distribution are deferre
 
 ## Version
 
-**v1.2.0** — June 2026
+**v1.3.0** — July 2026
