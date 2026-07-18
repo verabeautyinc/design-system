@@ -204,7 +204,7 @@ Warm, purpose-driven aliases are the application color contract. Product code sh
 | Surface grouped    | `#E8DDD0`              | Grouped and nested sections                             |
 | Surface disabled   | `#E8DDD0`              | Disabled controls and tracks                            |
 | Surface brand tint | `#F4E4E0`              | Low-emphasis brand fill                                 |
-| Surface input      | `#FFFFFF`              | Enabled inputs, select triggers, and search fields      |
+| Surface input      | `#FFFFFF`              | Enabled inputs, searches, selects, and secondary actions |
 | Avatar fallback    | `#8B644A`              | Warm fallback avatar                                    |
 | Primary text       | `#2E2723`              | Titles and emphasized values                            |
 | Secondary text     | `#645A52`              | Body copy and supporting values                         |
@@ -216,6 +216,18 @@ Warm, purpose-driven aliases are the application color contract. Product code sh
 | Action shadow      | `rgba(120,80,50,0.18)` | Warm action elevation                                   |
 
 `brandAccent` and `link` remain unchanged. Reception status colors are intentionally preserved as `color.reception.red`, `.yellow`, `.green`, and `.blue`.
+
+### Warm Control Recipes
+
+| Control          | Background        | Content                  | Border            |
+| ---------------- | ----------------- | ------------------------ | ----------------- |
+| Primary button   | `brandAccent`     | White                    | None              |
+| Secondary button | `surfaceInput`    | `textPrimary`            | `border`          |
+| Tertiary button  | `surfaceInput`    | `brandAccent`            | None              |
+| Input / search   | `surfaceInput`    | `textPrimary`            | `border`          |
+| Disabled control | `surfaceDisabled` | `textDisabled`           | As needed by type |
+
+Use `surfaceInput` for enabled white interactive controls, not for cards or page sections. Cards remain `surfaceRaised`; grouped content remains `surfaceGrouped`.
 
 ### Status Colors
 
