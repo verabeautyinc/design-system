@@ -78,6 +78,8 @@ npm run build:verify     # Both in sequence
 
 The `build/` directory is gitignored — run `npm run build` after cloning.
 
+React Native token code generation and cross-repository distribution are deferred to follow-up work. Until then, `tokens/design-tokens.json` and `mobile/constants/tokens.ts` must be kept manually synchronized.
+
 ---
 
 ## Version

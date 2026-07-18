@@ -195,7 +195,43 @@ The Monk Skin Tone scale is a scientifically developed 10-point scale for repres
 
 ## Semantic Colors
 
-Purpose-driven colors that communicate system state. These must remain consistent across all platforms to build reliable user mental models.
+Warm, purpose-driven aliases are the application color contract. Product code should use these roles instead of palette values.
+
+| Role               | Light value            | Usage                                                   |
+| ------------------ | ---------------------- | ------------------------------------------------------- |
+| Background         | `#F5F0EA`              | Page and screen background                              |
+| Surface raised     | `#FBF7F1`              | Cards and foreground sections                           |
+| Surface grouped    | `#E8DDD0`              | Grouped and nested sections                             |
+| Surface disabled   | `#E8DDD0`              | Disabled controls and tracks                            |
+| Surface brand tint | `#F4E4E0`              | Low-emphasis brand fill                                 |
+| Surface input      | `#FFFFFF`              | Enabled inputs, searches, selects, and secondary actions |
+| Avatar fallback    | `#8B644A`              | Warm fallback avatar                                    |
+| Primary text       | `#2E2723`              | Titles and emphasized values                            |
+| Secondary text     | `#645A52`              | Body copy and supporting values                         |
+| Tertiary text      | `#6B6058`              | Meaningful metadata and placeholders                    |
+| Disabled text      | `#A8A29E`              | Disabled text only                                      |
+| Decorative muted   | `#A89A8E`              | Decorative labels and timing anchors; never normal text |
+| Border             | `rgba(46,39,35,0.10)`  | Neutral borders and dividers                            |
+| Brand border       | `rgba(181,55,58,0.24)` | Brand-tinted borders                                    |
+| Action shadow      | `rgba(120,80,50,0.18)` | Warm action elevation                                   |
+
+`brandAccent` and `link` remain unchanged. Reception status colors are intentionally preserved as `color.reception.red`, `.yellow`, `.green`, and `.blue`.
+
+### Warm Control Recipes
+
+| Control          | Background        | Content                  | Border            |
+| ---------------- | ----------------- | ------------------------ | ----------------- |
+| Primary button   | `brandAccent`     | White                    | None              |
+| Secondary button | `surfaceInput`    | `textPrimary`            | `border`          |
+| Tertiary button  | Transparent       | `brandAccent`            | None              |
+| Input / search   | `surfaceInput`    | `textPrimary`            | `border`          |
+| Disabled control | `surfaceDisabled` | `textDisabled`           | As needed by type |
+
+Use `surfaceInput` for enabled white interactive controls, not for cards or page sections. Cards remain `surfaceRaised`; grouped content remains `surfaceGrouped`.
+
+### Status Colors
+
+Status colors communicate system state. These must remain consistent across all platforms to build reliable user mental models.
 
 ### Success — `#16A34A`
 
@@ -283,24 +319,24 @@ Purpose-driven colors that communicate system state. These must remain consisten
 
 ## Dark Mode
 
-Dark mode is not an inversion — it's a redesign. Vera's dark mode preserves warmth by using warm neutral surfaces (never pure black) and adjusted color values for comfortable reading.
+Mobile dark mode is not currently supported. Existing dark mappings are preserved for renamed roles. Net-new roles temporarily mirror their light values and are provisional until dark mode is designed.
 
 ### Surface Hierarchy (Dark Mode)
 
-| Level      | Light Mode | Dark Mode | Usage                         |
-| ---------- | ---------- | --------- | ----------------------------- |
-| Background | `#FFFFFF`  | `#1C1917` | Page background               |
-| Surface 1  | `#FAFAF9`  | `#292524` | Cards, elevated containers    |
-| Surface 2  | `#F5F5F3`  | `#44403C` | Nested elements, sidebars     |
-| Surface 3  | `#E7E5E4`  | `#57534E` | Active states, selected items |
+| Level            | Light Mode | Dark Mode | Usage                      |
+| ---------------- | ---------- | --------- | -------------------------- |
+| Background       | `#F5F0EA`  | `#1C1917` | Page background            |
+| Surface raised   | `#FBF7F1`  | `#292524` | Cards, elevated containers |
+| Surface grouped  | `#E8DDD0`  | `#44403C` | Nested elements, sidebars  |
+| Surface disabled | `#E8DDD0`  | `#E8DDD0` | Provisional dark mapping   |
 
 ### Text Colors (Dark Mode)
 
 | Role           | Light Mode | Dark Mode | Contrast (Dark)  |
 | -------------- | ---------- | --------- | ---------------- |
-| Primary text   | `#1C1917`  | `#FAFAF9` | 15.8:1 ✓ AAA     |
-| Secondary text | `#57534E`  | `#D6D3D1` | 9.5:1 ✓ AAA      |
-| Tertiary text  | `#78716C`  | `#A8A29E` | 5.7:1 ✓ AA       |
+| Primary text   | `#2E2723`  | `#FAFAF9` | 15.8:1 ✓ AAA     |
+| Secondary text | `#645A52`  | `#D6D3D1` | 9.5:1 ✓ AAA      |
+| Tertiary text  | `#6B6058`  | `#A8A29E` | 5.7:1 ✓ AA       |
 | Disabled text  | `#A8A29E`  | `#78716C` | 3.2:1 ✓ AA Large |
 
 ### Primary Color in Dark Mode

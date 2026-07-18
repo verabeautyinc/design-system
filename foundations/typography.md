@@ -124,6 +124,8 @@ Vera's type scale follows Apple HIG naming conventions with sizes optimized for 
 | Title 3         | 17px | 1.0625 | 24px (1.41) | 0px            | SemiBold 600           |
 | Body            | 17px | 1.0625 | 26px (1.53) | 0px            | Regular 400            |
 | Body (emphasis) | 17px | 1.0625 | 26px (1.53) | 0px            | SemiBold 600           |
+| Body compact    | 14px | 0.875  | 20px (1.43) | 0px            | Regular 400            |
+| Section label   | 12px | 0.75   | 16px (1.33) | 1.2px          | SemiBold 600           |
 | Callout         | 16px | 1.0    | 22px (1.38) | 0px            | Regular 400            |
 | Subheadline     | 15px | 0.9375 | 22px (1.47) | 0px            | Medium 500             |
 | Footnote        | 13px | 0.8125 | 18px (1.38) | 0px            | Regular 400            |
@@ -172,16 +174,16 @@ Vera's type scale follows Apple HIG naming conventions with sizes optimized for 
 
 Geist handles the vast majority of typography — all UI and body content. Cormorant Garamond owns the `display` register: hero copy, major screen headings, and editorial moments, across both product and marketing. The Vera Custom font is reserved exclusively for the logo wordmark.
 
-| Context                              | Font                | Example                                                                      |
+| Context                              | Font                | Example                                                                     |
 | ------------------------------------ | ------------------- | --------------------------------------------------------------------------- |
 | **All UI**                           | Geist               | Buttons, labels, navigation, forms, cards, badges, tabs, rows               |
 | **Body content**                     | Geist               | Treatment descriptions, reviews, articles                                   |
 | **Display (hero & major headings)**  | Cormorant Garamond  | Screen heros, major screen headings, editorial, hero banners, landing pages |
 | **Headlines (product, sub-display)** | Geist SemiBold/Bold | Section headers, card titles, page subtitles                                |
-| **Logo / Wordmark**                  | Vera Custom         | "vera" wordmark only                                                         |
+| **Logo / Wordmark**                  | Vera Custom         | "vera" wordmark only                                                        |
 | **Data**                             | Geist Mono          | Appointment IDs, prices, treatment codes                                    |
 | **Korean content**                   | Pretendard          | All Korean body / UI text mirrors Geist hierarchy                           |
-| **Korean brand moments**             | Arita Buri          | Gwallee callouts, 관리 wordmarks, manifesto copy — mirrors Cormorant         |
+| **Korean brand moments**             | Arita Buri          | Gwallee callouts, 관리 wordmarks, manifesto copy — mirrors Cormorant        |
 
 ### Pairing Rules
 
