@@ -15,6 +15,7 @@ Built on Apple Human Interface Guidelines principles with a focus on **minimalis
 - [Brand Identity](./brand-identity.md) — Mission, vision, values, voice
 - [Gwallee](./gwallee.md) — The manifesto. What Gwallee is, why Vera is built around it, and how we speak it.
 - [Visual Direction](./visual-direction.md) — Reference set (Aesop × Sulwhasoo × Function Health) and the design implications that flow from it.
+- [Logos](./assets/logos/README.md): Approved wordmark and V mark downloads
 
 ### Foundations
 
@@ -33,7 +34,16 @@ Built on Apple Human Interface Guidelines principles with a focus on **minimalis
 
 - [Design Principles](./guidelines/principles.md) — Three core principles with examples
 - [Do's and Don'ts](./guidelines/dos-and-donts.md) — 10 examples with visual descriptions
+- [Instagram Paid Creative](./guidelines/instagram-paid-creative.md): Guidance and examples for external partners creating Vera Instagram ads
 - [Implementation Guide](./guidelines/implementation.md) — Developer reference
+
+---
+
+## For Creative Partners
+
+Start with the [Instagram Paid Creative Guidelines](./guidelines/instagram-paid-creative.md). They explain how to apply Vera's brand, content, and design system to paid Instagram creative.
+
+Download the approved [logos](./assets/logos/README.md), then review the existing [Brand Identity](./brand-identity.md), [Visual Direction](./visual-direction.md), [Typography](./foundations/typography.md), and [Color System](./foundations/colors.md).
 
 ---
 
