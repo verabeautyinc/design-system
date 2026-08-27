@@ -42,7 +42,7 @@ A proprietary typeface used **exclusively** for the "vera" wordmark and logo. No
 
 - **Source:** Custom (internal asset)
 - **License:** Proprietary — Vera Beauty Inc.
-- **File:** `VeraDisplay.ttf`
+- **File:** [`VeraCustom.ttf`](../fonts/VeraCustom.ttf)
 - **Usage:** Logo and wordmark only. Never for headlines, body text, or UI elements.
 
 ### Korean — Pretendard
@@ -57,7 +57,7 @@ For Korean-language **body and UI content**, **Pretendard** mirrors Geist's prop
 
 For Korean **brand moments** — Gwallee callouts, 관리 wordmarks, manifesto copy — **Arita Buri** is the Korean pairing for Cormorant Garamond. It carries the heritage character Pretendard deliberately omits.
 
-Arita Buri (부리 = _serif_ in Korean) was designed by Ahn Sang-soo's studio and gifted to Korean design culture by Amorepacific. Positioned as "for elegant, sophisticated modern women" — it aligns precisely with Vera's MAWFIA audience and with the Gwallee thesis of heritage-as-signature-not-costume.
+Arita Buri (부리 = _serif_ in Korean) was designed by Ahn Sang-soo's studio and gifted to Korean design culture by Amorepacific. Positioned as "for elegant, sophisticated modern women," it aligns with Vera's primary consumer audience and with the Gwallee thesis of heritage as a signature rather than a costume.
 
 The two-tier Korean system mirrors the Latin one: Pretendard:Geist :: Arita Buri:Cormorant Garamond. Body text in one, brand moments in the other.
 
