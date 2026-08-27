@@ -6,7 +6,7 @@ Concrete examples of design decisions that align with Vera's principles — and 
 
 ## 1. Color: Use Coral for Action, Not Decoration
 
-**Do:** Use Primary Coral (`#D85959`) for a single primary CTA button and active navigation indicators. Let the rest of the page breathe in neutrals and white.
+**Do:** Use Primary Coral (`#B5373A`) for a single primary CTA button and active navigation indicators. Let the rest of the page breathe in neutrals and white.
 
 ```
 ┌──────────────────────────────────┐
@@ -156,21 +156,21 @@ Photo uploaded → Nothing happens                 ← Anxiety-inducing
 
 **Do:**
 
-| Context | Good |
-|---------|------|
-| Treatment CTA | "See what's possible" |
-| Results | "Your personalized plan" |
-| Before/after | "Your progress" |
-| Skin concern | "Areas of focus" |
+| Context       | Good                     |
+| ------------- | ------------------------ |
+| Treatment CTA | "See what's possible"    |
+| Results       | "Your personalized plan" |
+| Before/after  | "Your progress"          |
+| Skin concern  | "Areas of focus"         |
 
 **Don't:**
 
-| Context | Bad |
-|---------|-----|
-| Treatment CTA | "Fix your wrinkles now" |
-| Results | "What you need to fix" |
-| Before/after | "Before / After (fixed)" |
-| Skin concern | "Problem areas" |
+| Context       | Bad                      |
+| ------------- | ------------------------ |
+| Treatment CTA | "Fix your wrinkles now"  |
+| Results       | "What you need to fix"   |
+| Before/after  | "Before / After (fixed)" |
+| Skin concern  | "Problem areas"          |
 
 ---
 
@@ -228,6 +228,7 @@ Photo uploaded → Nothing happens                 ← Anxiety-inducing
 ## 10. Accessibility: Design for Everyone, Always
 
 **Do:**
+
 - Use color AND icons/text to convey meaning (never color alone)
 - Include visible focus rings for keyboard navigation
 - Write descriptive alt text for meaningful images
@@ -235,6 +236,7 @@ Photo uploaded → Nothing happens                 ← Anxiety-inducing
 - Respect `prefers-reduced-motion` for animations
 
 **Don't:**
+
 - Rely on red/green distinction for error/success (colorblind users can't distinguish)
 - Remove focus outlines for "cleaner" aesthetics
 - Use `alt=""` on informational images

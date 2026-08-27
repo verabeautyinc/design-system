@@ -53,7 +53,7 @@ Serif display for brand moments. Clean sans for UI. The existing token stack alr
 
 The existing palette already embodies the direction. The rebrand lives in **application**, not tokens.
 
-- **Vera Coral (`#D85959`) remains primary.** It is a bloom-toned flush — the color of healthy skin — not a transactional red. Keep.
+- **Vera Coral (`#B5373A`) remains primary.** It is a bloom-toned flush, the color of healthy skin, rather than a transactional red. Keep.
 - **Warm stone neutrals dominate 80%+ of any surface.** Already the rule.
 - **Coral coverage ≤ 10% of any surface.** Already the rule. Enforce it.
 - **Monk Skin Tone scale stays reserved for skin-tone representation.** Never decorative.

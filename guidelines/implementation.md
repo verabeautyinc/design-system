@@ -31,7 +31,7 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 const veraCustom = localFont({
-  src: "./fonts/VeraDisplay.ttf",
+  src: "./fonts/VeraCustom.ttf",
   variable: "--font-vera-custom",
   display: "swap",
 });
@@ -62,17 +62,17 @@ With Tailwind v4, design tokens are configured via CSS custom properties. Import
 
 @theme {
   /* Colors — Primary */
-  --color-primary-50: #fef2f2;
-  --color-primary-100: #fde3e3;
-  --color-primary-200: #fccbcb;
-  --color-primary-300: #f9a8a8;
-  --color-primary-400: #f07878;
-  --color-primary-500: #d85959;
-  --color-primary-600: #c44242;
-  --color-primary-700: #a33434;
-  --color-primary-800: #872d2d;
-  --color-primary-900: #722b2b;
-  --color-primary-950: #3e1212;
+  --color-primary-50: #fbeded;
+  --color-primary-100: #f6dadb;
+  --color-primary-200: #eebabb;
+  --color-primary-300: #e08f91;
+  --color-primary-400: #cf6063;
+  --color-primary-500: #b5373a;
+  --color-primary-600: #9e2d30;
+  --color-primary-700: #842427;
+  --color-primary-800: #6a1d1f;
+  --color-primary-900: #551819;
+  --color-primary-950: #310e0f;
 
   /* Colors — Neutral (Stone) */
   --color-neutral-0: #ffffff;
@@ -169,17 +169,17 @@ With Tailwind v4, design tokens are configured via CSS custom properties. Import
 
 export const colors = {
   primary: {
-    50: "#FEF2F2",
-    100: "#FDE3E3",
-    200: "#FCCBCB",
-    300: "#F9A8A8",
-    400: "#F07878",
-    500: "#D85959",
-    600: "#C44242",
-    700: "#A33434",
-    800: "#872D2D",
-    900: "#722B2B",
-    950: "#3E1212",
+    50: "#FBEDED",
+    100: "#F6DADB",
+    200: "#EEBABB",
+    300: "#E08F91",
+    400: "#CF6063",
+    500: "#B5373A",
+    600: "#9E2D30",
+    700: "#842427",
+    800: "#6A1D1F",
+    900: "#551819",
+    950: "#310E0F",
   },
   neutral: {
     0: "#FFFFFF",
